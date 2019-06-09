@@ -41,6 +41,8 @@ def criaNos(arquivoBR, arquivoUSA, arquivoFR, grafo, listaTotalBR_USA_FR):
                             grafo.nodes[i]['eua'] = 1
                             print("BRASIL E USA")
                             flag = 0
+                            break
+                    break
 
             if(flag):
                 grafo.add_node(us, ingredientePT="", ingredienteEN=lineUSA.split(":")[0].replace("\n", ""),
@@ -55,12 +57,14 @@ def criaNos(arquivoBR, arquivoUSA, arquivoFR, grafo, listaTotalBR_USA_FR):
         for lineFR in fileFR:
             outraFlag = 2
             for k in listaTotal:
-                if(lineFR.split(":")[1] == k):              # se este ingrediente já estiver adicionado
+                if(lineFR.split(":")[1].replace("\n", "") == k):              # se este ingrediente já estiver adicionado
                     for m in range(0, len(grafo)):
                         if(grafo.nodes[m]['ingredienteEN'] == k):
                             grafo.nodes[m]['franca'] = 1
                             print("BRASIL, USA E FRANCA")
                             outraFlag = 0
+                            break
+                    break
 
             if(outraFlag):
                 grafo.add_node(fr, ingredientePT="", ingredienteEN=lineFR.split(":")[1].replace("\n", ""),

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="558e7136-db48-4f6d-aca1-1531bb3402b3" name="Default Changelist" comment="" />
+    <list default="true" id="558e7136-db48-4f6d-aca1-1531bb3402b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/grafoAlemanha-PMI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grafoIndia-PMI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grafoItalia-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BR-USA-FR-ingredients.py" beforeDir="false" afterPath="$PROJECT_DIR$/BR-USA-FR-ingredients.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BR-pt-en-alto.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FR-fr-en-alto.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoBR-USA-FR-ALTO.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoFranca-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoFranca-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/listaTotalBR_USA_FR.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/top50-USA-alto.txt" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,16 +94,19 @@
     <session id="2026541307">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.41" value="1" />
@@ -99,27 +115,29 @@
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.94" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="14534" />
+          <entry key="dummy" value="2" />
+          <entry key="py" value="17546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="14534" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="17546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="33" />
+          <entry key="py" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="33" />
+          <entry key="Python" value="45" />
         </counts>
       </usages-collector>
     </session>
@@ -127,19 +145,16 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BR-USA-FR-ingredients.py">
+        <entry file="file://$PROJECT_DIR$/grafoAlemanha-PMI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="305">
+              <caret line="198" column="40" selection-start-line="198" selection-start-column="40" selection-end-line="198" selection-end-column="40" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#230#739#0" />
-                <element signature="e#6845#6986#0" />
-                <element signature="e#7037#7836#0" />
-                <element signature="e#7865#7928#0" />
-                <element signature="e#8374#12498#0" />
-                <element signature="e#12569#19314#0" />
-                <element signature="e#19381#26544#0" />
+                <element signature="e#389#759#0" />
+                <element signature="e#800#1301#0" />
+                <element signature="e#1354#1860#0" />
+                <element signature="e#1930#2174#0" />
+                <element signature="e#6052#8305#0" />
               </folding>
             </state>
           </provider>
@@ -168,10 +183,18 @@
       <find>ingredient</find>
       <find>du</find>
       <find>cra</find>
+      <find>dataframeBR</find>
+      <find>dataframeAL</find>
+      <find>grafoUSA</find>
     </findStrings>
+    <replaceStrings>
+      <replace>dataframeAL</replace>
+      <replace>dataframeIT</replace>
+      <replace>grafoIT</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/unicode-in-python" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -200,12 +223,17 @@
         <option value="$PROJECT_DIR$/grafoBRASIL-PMI.py" />
         <option value="$PROJECT_DIR$/grafoUSA-PMI.py" />
         <option value="$PROJECT_DIR$/BR-USA-ingredients.py" />
-        <option value="$PROJECT_DIR$/grafoFranca-PMI.py" />
         <option value="$PROJECT_DIR$/BR-USA-FR-ingredients.py" />
+        <option value="$PROJECT_DIR$/grafoFranca-PMI.py" />
+        <option value="$PROJECT_DIR$/venv/grafoIndia-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoAlamanha-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoIndia-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoItalia-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -253,7 +281,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.BR-USA-FR-ingredients">
+  <component name="RunManager" selected="Python.grafoAlemanha-PMI">
     <configuration name="BR-USA-FR-ingredients" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -275,7 +303,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="BR-USA-ingredients" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="grafoAlemanha-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -287,28 +315,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BR-USA-ingredients.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="grafoBRASIL-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AllRecipes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoBRASIL-PMI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -338,7 +345,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="grafoUSA-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="grafoIndia-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -350,7 +357,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoUSA-PMI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoIndia-PMI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="grafoItalia-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AllRecipes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoItalia-PMI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -360,19 +388,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.grafoBRASIL-PMI" />
-      <item itemvalue="Python.grafoUSA-PMI" />
-      <item itemvalue="Python.BR-USA-ingredients" />
       <item itemvalue="Python.grafoFranca-PMI" />
       <item itemvalue="Python.BR-USA-FR-ingredients" />
+      <item itemvalue="Python.grafoIndia-PMI" />
+      <item itemvalue="Python.grafoAlemanha-PMI" />
+      <item itemvalue="Python.grafoItalia-PMI" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.BR-USA-FR-ingredients" />
+        <item itemvalue="Python.grafoAlemanha-PMI" />
+        <item itemvalue="Python.grafoItalia-PMI" />
+        <item itemvalue="Python.grafoIndia-PMI" />
         <item itemvalue="Python.grafoFranca-PMI" />
-        <item itemvalue="Python.BR-USA-ingredients" />
-        <item itemvalue="Python.grafoUSA-PMI" />
-        <item itemvalue="Python.grafoBRASIL-PMI" />
+        <item itemvalue="Python.BR-USA-FR-ingredients" />
       </list>
     </recent_temporary>
   </component>
@@ -400,15 +428,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20163691" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627978" visible="true" weight="0.38032788" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35573772" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49627978" weight="0.30983606" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.447541" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49925596" weight="0.32786885" />
@@ -654,24 +681,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grafoBRASIL-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grafoUSA-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3127">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -682,26 +695,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/grafoIndia-PMI.py" />
     <entry file="file://$PROJECT_DIR$/grafoFranca-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="174" selection-start-line="174" selection-end-line="234" selection-end-column="99" />
+        <state relative-caret-position="17">
+          <caret line="125" column="56" selection-end-line="251" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoIndia-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="122" column="61" selection-start-line="122" selection-start-column="61" selection-end-line="122" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BR-USA-FR-ingredients.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="-1715">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoUSA-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoItalia-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="225" column="21" lean-forward="true" selection-start-line="225" selection-start-column="21" selection-end-line="225" selection-end-column="21" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#230#739#0" />
-            <element signature="e#6845#6986#0" />
-            <element signature="e#7037#7836#0" />
-            <element signature="e#7865#7928#0" />
-            <element signature="e#8374#12498#0" />
-            <element signature="e#12569#19314#0" />
-            <element signature="e#19381#26544#0" />
+            <element signature="e#389#759#0" />
+            <element signature="e#800#1301#0" />
+            <element signature="e#1354#1860#0" />
+            <element signature="e#1930#2174#0" />
+            <element signature="e#2249#3243#0" />
+            <element signature="e#3271#3589#0" />
+            <element signature="e#3691#3904#0" />
+            <element signature="e#3949#4751#0" />
+            <element signature="e#4922#5294#0" />
+            <element signature="e#5334#5501#0" />
+            <element signature="e#6169#11173#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoAlemanha-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="198" column="40" selection-start-line="198" selection-start-column="40" selection-end-line="198" selection-end-column="40" />
+          <folding>
+            <element signature="e#389#759#0" />
+            <element signature="e#800#1301#0" />
+            <element signature="e#1354#1860#0" />
+            <element signature="e#1930#2174#0" />
+            <element signature="e#6052#8305#0" />
           </folding>
         </state>
       </provider>

@@ -123,7 +123,7 @@ def criaLinks(grafoFR, tam ,dicFinal):
     #return pmiList
 
 def salvaGrafo(grafoFR):
-    nx.drawing.nx_pydot.write_dot(grafoFR, "grafoFRALTO.dot")
+    nx.drawing.nx_pydot.write_dot(grafoFR, "grafoFRBAIXO.dot")
     #nx.write_gml(grafoBR, "grafoBRTESTEPEQUENO.gml")
 
 def criaHistograma(pmiList):
@@ -150,7 +150,7 @@ def calculaCentralidade(grafoBR):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-FRANCA-alto.txt", "a")
+    top50 = open("top50-FRANCA-baixo.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
         if(top < 50):
@@ -238,7 +238,7 @@ ingredientsDictionary = []
 dicFinal = dict(ingredientsDictionary)
 
 for i in range(0,5568):
-    if(calculaScore(dataframeFR, i) >= 25):
+    if(calculaScore(dataframeFR, i) <= 15):
         ingredients = dataframeFR.loc[i, "ingredients"]
         category =dataframeFR.loc[i, "category"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeFR.loc[i, "_id"], category)
