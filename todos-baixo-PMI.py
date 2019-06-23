@@ -250,7 +250,7 @@ def criaLinks(grafo, tam):
     #return pmiList
 
 def salvaGrafo(grafo):
-    nx.drawing.nx_pydot.write_dot(grafo, "todos-ALTO.dot")
+    nx.drawing.nx_pydot.write_dot(grafo, "todos-BAIXO.dot")
 
 def calculaCentralidade(grafo):
     dicCentralidade = nx.algorithms.centrality.degree_centrality(grafo)
@@ -260,7 +260,7 @@ def calculaCentralidade(grafo):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-total-alto.txt", "a")
+    top50 = open("top50-total-baixo.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
         if(top < 65):
@@ -550,7 +550,7 @@ stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
                   "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown"])
 
 lista_todos_total = open("lista-total-todos.txt", "a")
-criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top50-INDIA-alto.txt", "top50-USA-alto.txt", grafo, lista_todos_total)
+criaNos("BR-pt-en-baixo.txt", "FR-fr-en-baixo.txt", "AL-al-en-baixo.txt", "IT-it-en-baixo.txt", "top50-INDIA-baixo.txt", "top50-USA-baixo.txt", grafo, lista_todos_total)
 insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
 criaLinks(grafo, len(grafo))
 salvaGrafo(grafo)
