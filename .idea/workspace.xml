@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="558e7136-db48-4f6d-aca1-1531bb3402b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/vetores-alto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lista-total-todos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lista-total-todos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todos-ALTO.dot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todos-alto-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/todos-alto-PMI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/top50-total-alto.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +86,7 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="28" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
@@ -104,34 +103,35 @@
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.94" value="1" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="17" />
-          <entry key="py" value="19354" />
+          <entry key="py" value="21165" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="19354" />
+          <entry key="Python" value="21165" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="57" />
+          <entry key="py" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="57" />
+          <entry key="Python" value="72" />
         </counts>
       </usages-collector>
     </session>
@@ -139,37 +139,16 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/todos-baixo-PMI.py">
+        <entry file="file://$PROJECT_DIR$/tsne.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="557" column="38" lean-forward="true" selection-start-line="557" selection-start-column="38" selection-end-line="557" selection-end-column="38" />
+            <state relative-caret-position="198">
+              <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#227#733#0" />
-                <element signature="e#845#6680#0" />
-                <element signature="e#952#1441#0" />
-                <element signature="e#1499#2422#0" />
-                <element signature="e#2480#3470#0" />
-                <element signature="e#3528#4515#0" />
-                <element signature="e#4574#5571#0" />
-                <element signature="e#5632#6680#0" />
-                <element signature="e#6788#14000#0" />
-                <element signature="e#7040#7953#0" />
-                <element signature="e#8121#9186#0" />
-                <element signature="e#9351#10417#0" />
-                <element signature="e#10577#11602#0" />
-                <element signature="e#11760#12785#0" />
-                <element signature="e#12965#14000#0" />
-                <element signature="e#14100#14241#0" />
-                <element signature="e#14292#15091#0" />
-                <element signature="e#15212#15377#0" />
-                <element signature="e#15411#15739#0" />
-                <element signature="e#16504#23249#0" />
-                <element signature="e#23316#30479#0" />
-                <element signature="e#30546#32809#0" />
-                <element signature="e#32877#37862#0" />
-                <element signature="e#37930#42204#0" />
-                <element signature="e#42274#46477#0" />
+                <element signature="e#565#880#0" />
+                <element signature="e#938#2795#0" />
+                <element signature="e#2838#3159#0" />
+                <element signature="e#3236#5450#0" />
+                <marker date="1562016675484" expanded="true" signature="5630:6006" ph="..." />
               </folding>
             </state>
           </provider>
@@ -246,8 +225,13 @@
         <option value="$PROJECT_DIR$/grafoIndia-PMI.py" />
         <option value="$PROJECT_DIR$/grafoItalia-PMI.py" />
         <option value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
+        <option value="$PROJECT_DIR$/vetores-alto.py" />
+        <option value="$PROJECT_DIR$/../t-sne/tsne_python/tsne.py" />
+        <option value="$PROJECT_DIR$/createArrayPMI-ALTO.py" />
+        <option value="$PROJECT_DIR$/generalArray-alto.py" />
         <option value="$PROJECT_DIR$/todos-alto-PMI.py" />
         <option value="$PROJECT_DIR$/todos-baixo-PMI.py" />
+        <option value="$PROJECT_DIR$/tsne.py" />
       </list>
     </option>
   </component>
@@ -299,8 +283,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.todos-baixo-PMI">
-    <configuration name="grafoAlemanha-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.tsne">
+    <configuration name="createArrayPMI-ALTO" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -312,7 +296,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/createArrayPMI-ALTO.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -321,7 +305,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="grafoIndia-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="generalArray-alto" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -333,28 +317,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoIndia-PMI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="grafoItalia-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AllRecipes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoItalia-PMI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generalArray-alto.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -405,20 +368,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tsne" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AllRecipes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tsne.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.grafoIndia-PMI" />
-      <item itemvalue="Python.grafoAlemanha-PMI" />
-      <item itemvalue="Python.grafoItalia-PMI" />
       <item itemvalue="Python.todos-alto-PMI" />
       <item itemvalue="Python.todos-baixo-PMI" />
+      <item itemvalue="Python.createArrayPMI-ALTO" />
+      <item itemvalue="Python.generalArray-alto" />
+      <item itemvalue="Python.tsne" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tsne" />
         <item itemvalue="Python.todos-baixo-PMI" />
         <item itemvalue="Python.todos-alto-PMI" />
-        <item itemvalue="Python.grafoAlemanha-PMI" />
-        <item itemvalue="Python.grafoItalia-PMI" />
-        <item itemvalue="Python.grafoIndia-PMI" />
+        <item itemvalue="Python.generalArray-alto" />
+        <item itemvalue="Python.createArrayPMI-ALTO" />
       </list>
     </recent_temporary>
   </component>
@@ -446,13 +430,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20163691" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49627978" weight="0.17868853" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627978" visible="true" weight="0.29016393" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31311476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,13 +472,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/collectLinks.py" />
-    <entry file="file://$PROJECT_DIR$/receitas-sobremesa.txt" />
-    <entry file="file://$PROJECT_DIR$/receitas-salada.txt" />
-    <entry file="file://C:/Python34/Lib/http/client.py" />
     <entry file="file://$USER_HOME$/Downloads/collectLinksAndRecipe-BRASIL.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/requests/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -572,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="736" selection-start-line="736" selection-end-line="736" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/networkx/classes/reportviews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="167" selection-start-line="167" selection-end-line="167" />
         </state>
       </provider>
     </entry>
@@ -685,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appendID.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/boxplot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -763,24 +727,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../t-sne/tsne_python/tsne.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="181" column="37" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appendID.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vetores-alto.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createArrayPMI-ALTO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/networkx/classes/reportviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generalArray-alto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/todos-alto-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3043">
-          <caret line="232" column="17" selection-start-line="232" selection-start-column="17" selection-end-line="232" selection-end-column="17" />
+        <state relative-caret-position="137">
+          <caret line="565" column="18" lean-forward="true" selection-start-line="565" selection-start-column="18" selection-end-line="565" selection-end-column="18" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#227#733#0" />
+            <element signature="e#845#6680#0" />
             <element signature="e#952#1441#0" />
             <element signature="e#1499#2422#0" />
             <element signature="e#2480#3470#0" />
+            <element signature="e#6788#14000#0" />
+            <element signature="e#14100#14241#0" />
+            <element signature="e#14292#15091#0" />
+            <element signature="e#15120#15174#0" />
+            <element signature="e#15212#15377#0" />
+            <element signature="e#15411#15739#0" />
+            <marker date="1561986978856" expanded="true" signature="15758:16208" ph="..." />
+            <marker date="1561986978856" expanded="true" signature="16206:16208" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todos-baixo-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="557" column="38" lean-forward="true" selection-start-line="557" selection-start-column="38" selection-end-line="557" selection-end-column="38" />
+        <state relative-caret-position="205">
+          <caret line="566" column="1" selection-start-line="566" selection-start-column="1" selection-end-line="566" selection-end-column="1" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#227#733#0" />
@@ -800,14 +820,26 @@
             <element signature="e#12965#14000#0" />
             <element signature="e#14100#14241#0" />
             <element signature="e#14292#15091#0" />
-            <element signature="e#15212#15377#0" />
-            <element signature="e#15411#15739#0" />
-            <element signature="e#16504#23249#0" />
-            <element signature="e#23316#30479#0" />
-            <element signature="e#30546#32809#0" />
-            <element signature="e#32877#37862#0" />
-            <element signature="e#37930#42204#0" />
-            <element signature="e#42274#46477#0" />
+            <element signature="e#16506#23251#0" />
+            <element signature="e#23318#30481#0" />
+            <element signature="e#30548#32811#0" />
+            <element signature="e#32879#37864#0" />
+            <element signature="e#37932#42206#0" />
+            <element signature="e#42276#46479#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsne.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
+          <folding>
+            <element signature="e#565#880#0" />
+            <element signature="e#938#2795#0" />
+            <element signature="e#2838#3159#0" />
+            <element signature="e#3236#5450#0" />
+            <marker date="1562016675484" expanded="true" signature="5630:6006" ph="..." />
           </folding>
         </state>
       </provider>

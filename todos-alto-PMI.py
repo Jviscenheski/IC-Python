@@ -268,6 +268,15 @@ def defineTops(dicionario):
             print(grafo.nodes[item]['ingredienteEN'])
             top50.write(str(grafo.nodes[item]['ingredienteEN']) + ": " + str(dicionario[item]) + "\n")
 
+def array(grafo):
+    arrayGeral = open("arrayGeral-alto.txt", "a")
+
+    for i in range(len(grafo) - 1):
+        print(str(grafo.nodes[i]['brasil']) + str(grafo.nodes[i]['ingredienteEN']))
+        arrayGeral.write(
+            str(grafo.nodes[i]['brasil']) + ":" + str(grafo.nodes[i]['franca']) + ":" + str(grafo.nodes[i]['alemanha']) + ":" +
+            str(grafo.nodes[i]['italia']) + ":" + str(grafo.nodes[i]['india']) + ":" + str(grafo.nodes[i]['eua']) + "\n")
+
 
 # MAIN
 
@@ -551,11 +560,11 @@ stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
 
 lista_todos_total = open("lista-total-todos.txt", "a")
 criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top50-INDIA-alto.txt", "top50-USA-alto.txt", grafo, lista_todos_total)
-insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
-criaLinks(grafo, len(grafo))
-salvaGrafo(grafo)
-
-defineTops(calculaCentralidade(grafo))
+array(grafo)
+#insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
+#criaLinks(grafo, len(grafo))
+#salvaGrafo(grafo)
+#defineTops(calculaCentralidade(grafo))
 
 
 
