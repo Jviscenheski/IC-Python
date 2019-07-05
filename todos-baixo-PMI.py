@@ -26,7 +26,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
         for line in file:
             lista_todos_total.write(str(line.split(":")[1]))
             grafo.add_node(br, ingredienteLL=line.split(":")[0], ingredienteEN=line.split(":")[1].replace("\n", ""),
-                           qtdadeReceitas=0, brasil=1, franca=0, alemanha=0, italia=0, india=0, eua=0, receitas=[])
+                           qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=1, franca=0, alemanha=0, italia=0, india=0, eua=0, receitas=[])
             print("criou no BR: " + line.split(":")[0] + " ou " + line.split(":")[1])
             listaTotal.append(line.split(":")[1].replace("\n", ""))
             br = br + 1
@@ -46,7 +46,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
             if(flag):
                 grafo.add_node(fr, ingredienteLL=lineFR.split(":")[0], ingredienteEN=lineFR.split(":")[1].replace("\n", ""),
-                               qtdadeReceitas=0, brasil=0, franca=1, alemanha=0, italia=0, india=0, eua=0, receitas=[])
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=1, alemanha=0, italia=0, india=0, eua=0, receitas=[])
                 fr = fr + 1
                 lista_todos_total.write(str(lineFR.split(":")[1]))
                 listaTotal.append(lineFR.split(":")[1].replace("\n", ""))
@@ -67,7 +67,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
             if(outraFlag):
                 grafo.add_node(al, ingredienteLL=lineAL.split(":")[0], ingredienteEN=lineAL.split(":")[1].replace("\n", ""),
-                               qtdadeReceitas=0, brasil=0, franca=0, alemanha=1, italia=0, india=0, eua=0, receitas=[])
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=1, italia=0, india=0, eua=0, receitas=[])
                 al = al + 1
                 lista_todos_total.write(str(lineAL.split(":")[1]))
                 listaTotal.append(lineAL.split(":")[1].replace("\n", ""))
@@ -88,7 +88,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
             if(outraFlag1):
                 grafo.add_node(it, ingredienteLL=lineIT.split(":")[0], ingredienteEN=lineIT.split(":")[1].replace("\n",""),
-                               qtdadeReceitas=0, brasil=0, franca=0, alemanha=0, italia=1, india=0, eua=0, receitas=[])
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=1, india=0, eua=0, receitas=[])
                 it = it + 1
                 lista_todos_total.write(str(lineIT.split(":")[1]))
                 listaTotal.append(lineIT.split(":")[1].replace("\n", ""))
@@ -109,7 +109,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
             if(outraFlag2):
                 grafo.add_node(ind, ingredienteLL=lineIN.split(":")[0], ingredienteEN=lineIN.split(":")[0].replace("\n", ""),
-                               qtdadeReceitas=0, brasil=0, franca=0, alemanha=0, italia=0, india=1, eua=0, receitas=[])
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=1, eua=0, receitas=[])
                 ind = ind + 1
                 lista_todos_total.write(str(lineIN.split(":")[0]) + "\n")
                 listaTotal.append(lineIN.split(":")[0].replace("\n", ""))
@@ -131,12 +131,13 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             if(outraFlag3):
                 grafo.add_node(us, ingredienteLL=lineUSA.split(":")[0].replace("\n", ""),
                                ingredienteEN=lineUSA.split(":")[0].replace("\n", ""),
-                               qtdadeReceitas=0, brasil=0, franca=0, alemanha=0, italia=0, india=0, eua=1, receitas=[])
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=0, eua=1, receitas=[])
                 us = us + 1
                 lista_todos_total.write(str(lineUSA.split(":")[0]) + "\n")
                 listaTotal.append(lineUSA.split(":")[0].replace("\n", ""))
                 print("criou nos EUA: " + lineUSA.split(":")[0])
 
+'''
 def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
 
     # primeiro analisa as receitas brasileiras
@@ -220,6 +221,102 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     grafo.nodes[j]['qtdadeReceitas'] = len(recipeList)
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente USA")
+'''
+def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
+
+    # primeiro analisa as receitas brasileiras
+    for i in range(0,7794):                                                                     # controla o dataframe                                                                # controla o grafo
+        listIngredient = filtraIngredientes(dataframeBR.loc[i, "ingredients"], stopWordsBR)     # pega os ingredientes de uma receita
+        for item in listIngredient:                                                             # controla a lista de ingredientes
+            for j in range(0, len(grafo)):
+                if(grafo.nodes[j]['ingredienteLL'] == item):                                    # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    recipeList.append(dataframeBR.loc[i, "_id"])
+                    grafo.nodes[j]['receitas'] = recipeList                                   # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[0] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas'] ))
+                    print("achou ingrediente BR!")
+
+    # analisando as receitas francesas
+    for i in range(0, 5568):                                                                    # controla o dataframe
+        for j in range(0, len(grafo)):                                                          # controla o grafo
+            listIngredient = filtraIngredientes(dataframeFR.loc[i, "ingredients"],
+                                                stopWordsFR)                                   # pega os ingredientes de uma receita
+            for item in listIngredient:                                                         # controla a lista de ingredientes
+                if (grafo.nodes[j]['ingredienteLL'] == item):                                   # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    recipeList.append(dataframeFR.loc[i, "_id"])
+                    grafo.nodes[j]['receitas'] = recipeList                                     # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[1] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
+                    print("achou ingrediente FR")
+
+    # analisando as receitas alemãs
+    for i in range(0, 6985):                                                                    # controla o dataframe
+        for j in range(0, len(grafo)):                                                          # controla o grafo
+            listIngredient = filtraIngredientes(dataframeAL.loc[i, "ingredients"],
+                                                stopWordsAL)                                    # pega os ingredientes de uma receita
+            for item in listIngredient:                                                         # controla a lista de ingredientes
+                if (grafo.nodes[j]['ingredienteLL'] == item):                                   # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    recipeList.append(dataframeAL.loc[i, "_id"])
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    grafo.nodes[j]['receitas'] = recipeList                                     # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[2] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
+                    print("achou ingrediente AL")
+
+    # analisando as receitas italianas
+    for i in range(0, 4006):                                                            # controla o dataframe
+        for j in range(0, len(grafo)):                                                  # controla o grafo
+            listIngredient = filtraIngredientes(dataframeIT.loc[i, "ingredients"],
+                                                stopWordsIT)                            # pega os ingredientes de uma receita
+            for item in listIngredient:                                                 # controla a lista de ingredientes
+                if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    recipeList.append(dataframeIT.loc[i, "_id"])
+                    grafo.nodes[j]['receitas'] = recipeList                            # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[3] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
+                    print("achou ingrediente IT")
+
+    # analisando as receitas indianas
+    for i in range(0, 967):                                                            # controla o dataframe
+        for j in range(0, len(grafo)):                                                  # controla o grafo
+            listIngredient = filtraIngredientes(dataframeIN.loc[i, "ingredients"],
+                                                stopWordsIN)                           # pega os ingredientes de uma receita
+            for item in listIngredient:                                                 # controla a lista de ingredientes
+                if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    recipeList.append(dataframeIN.loc[i, "_id"])
+                    grafo.nodes[j]['receitas'] = recipeList                             # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[4] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
+                    print("achou ingrediente IN")
+
+    # analisa as receitas estadunidenses
+    for i in range(0, 12167):                                                                             # controla o dataframe
+        for j in range(0, len(grafo)):                                                                    # controla o grafo
+            listIngredient = filtraIngredientes(dataframeUSA.loc[i, "ingredients"], stopWordsUSA)         # pega os ingredientes de uma receita
+            for item in listIngredient:                                                                   # controla a lista de ingredientes
+                if (grafo.nodes[j]['ingredienteEN'] == item):                                             # se o ingrediente procurado estiver dentro da receita
+                    recipeList = grafo.nodes[j]['receitas']
+                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
+                    recipeList.append(dataframeUSA.loc[i, "_id"])
+                    grafo.nodes[j]['receitas'] = recipeList                                               # guarda o id desta receita dentro do nó
+                    vetorReceitasPais[5] = len(recipeList)
+                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
+                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
+                    print("achou ingrediente USA")
 
 # Calcula a quantidade, não é qualitativo!
 def calculaReceitasComuns(listIngre1, listIngre2):
@@ -268,7 +365,7 @@ def defineTops(dicionario):
             print(grafo.nodes[item]['ingredienteEN'])
             top50.write(str(grafo.nodes[item]['ingredienteEN']) + ": " + str(dicionario[item]) + "\n")
 
-def array(grafo):
+def arrayToTSNE(grafo):
     arrayGeral = open("arrayGeral-baixo.txt", "a")
 
     for i in range(len(grafo) - 1):
@@ -276,6 +373,14 @@ def array(grafo):
         arrayGeral.write(
             str(grafo.nodes[i]['brasil']) + ":" + str(grafo.nodes[i]['franca']) + ":" + str(grafo.nodes[i]['alemanha']) + ":" +
             str(grafo.nodes[i]['italia']) + ":" + str(grafo.nodes[i]['india']) + ":" + str(grafo.nodes[i]['eua']) + "\n")
+
+
+def geraArquivoTXT(grafo):
+    qtdadeReceitas = open("qtdadeReceitas-baixo.txt", "a")
+
+    for i in range(len(grafo) - 1):
+        print(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "").replace("[", ""))
+        qtdadeReceitas.write(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "") + "\n")
 
 
 # MAIN
@@ -560,8 +665,9 @@ stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
 
 lista_todos_total = open("lista-total-todos.txt", "a")
 criaNos("BR-pt-en-baixo.txt", "FR-fr-en-baixo.txt", "AL-al-en-baixo.txt", "IT-it-en-baixo.txt", "top50-INDIA-baixo.txt", "top50-USA-baixo.txt", grafo, lista_todos_total)
-array(grafo)
-#insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
+arrayToTSNE(grafo)
+insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
+geraArquivoTXT(grafo)
 #criaLinks(grafo, len(grafo))
 #salvaGrafo(grafo)
 #defineTops(calculaCentralidade(grafo))

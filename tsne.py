@@ -14,6 +14,8 @@
 
 import numpy as np
 import pylab
+import csv
+from itertools import zip_longest
 
 def Hbeta(D=np.array([]), beta=1.0):
     """
@@ -196,6 +198,16 @@ def criaArrays(arquivo):
 
     array = np.array([listBrasil, listFranca, listAlemanha, listItalia, listIndia, listEUA]).astype(np.float)
     print(array)
+
+
+    export_data = zip_longest(*array, fillvalue='')
+    with open('qtadadeReceitas-BAIXO.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+        wr = csv.writer(myfile)
+        columnTitleRow = (["Brasil", "França", "Alemanha", "Itália", "Índia", "EUA"])
+        wr.writerow(columnTitleRow)
+        wr.writerows(export_data)
+    myfile.close()
+
     return array
 
 if __name__ == "__main__":
@@ -204,12 +216,12 @@ if __name__ == "__main__":
     #X = np.loadtxt("mnist2500_X.txt")
     #labels = np.loadtxt("mnist2500_labels.txt")
     # Y = tsne(X, 2, 50, 20.0)
-    labels2 = np.loadtxt("testeLabels.txt")
-    arrayFormado = criaArrays("arrayGeral-alto.txt")
+    #labels2 = np.loadtxt("testeLabels.txt")
+    arrayFormado = criaArrays("qtdadeReceitas-baixo.txt")
     Y = tsne(arrayFormado, 2, 50, 20.0)
-
-    group = np.array([1,2,3,4,5,6])
-    cdict = {1: 'red', 2: 'blue', 3: 'yellow', 4: 'green', 5: 'gray', 6: 'black'}
+    group = np.array(['Brazil','France','Germany','Italy','India','USA'])
+    #cdict = {1: 'red', 2: 'blue', 3: 'yellow', 4: 'green', 5: 'gray', 6: 'black'}
+    cdict = {'Brazil': 'red', 'France': 'blue', 'Germany': 'yellow', 'Italy': 'green', 'India': 'gray', 'USA': 'black'}
 
     fig, ax = pylab.subplots()
     for g in np.unique(group):
@@ -218,4 +230,5 @@ if __name__ == "__main__":
 
     #pylab.colorbar()
     ax.legend()
+    pylab.title("t-SNE results - low score")
     pylab.show()
