@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="558e7136-db48-4f6d-aca1-1531bb3402b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arrayGeral-alto.txt" beforeDir="false" afterPath="$PROJECT_DIR$/arrayGeral-alto.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arrayGeral-baixo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/arrayGeral-baixo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arrayGeral-alto.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arrayGeral-baixo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoAlemanha-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoAlemanha-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoBRASIL-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoBRASIL-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoFranca-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoFranca-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoIndia-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoIndia-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoItalia-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoItalia-PMI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafoUSA-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/grafoUSA-PMI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todos-alto-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/todos-alto-PMI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todos-baixo-PMI.py" beforeDir="false" afterPath="$PROJECT_DIR$/todos-baixo-PMI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsne.py" beforeDir="false" afterPath="$PROJECT_DIR$/tsne.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vetores-alto.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,21 +94,24 @@
     <session id="2026541307">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="40" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.16" value="2" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.174" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.21" value="2" />
-          <entry key="project.open.time.22" value="2" />
+          <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.24" value="2" />
           <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.36" value="2" />
@@ -114,29 +122,59 @@
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.94" value="1" />
-          <entry key="project.opened" value="37" />
+          <entry key="project.opened" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="17" />
-          <entry key="py" value="22115" />
+          <entry key="py" value="22997" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="22115" />
+          <entry key="Python" value="22997" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="81" />
+          <entry key="py" value="106" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="81" />
+          <entry key="Python" value="106" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1343428378">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="1802" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1802" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -144,30 +182,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tsne.py">
+        <entry file="file://$PROJECT_DIR$/todos-alto-PMI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="220" column="39" lean-forward="true" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="39" />
+            <state relative-caret-position="275">
+              <caret line="343" column="123" selection-start-line="343" selection-start-column="123" selection-end-line="343" selection-end-column="123" />
               <folding>
-                <element signature="e#491#509#0" expanded="true" />
-                <marker date="1562289274196" expanded="true" signature="5675:6051" ph="..." />
+                <element signature="e#227#733#0" />
+                <element signature="e#845#6782#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todos-baixo-PMI.py">
+        <entry file="file://$PROJECT_DIR$/tsne.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="235" column="134" selection-start-line="235" selection-start-column="134" selection-end-line="235" selection-end-column="134" />
+            <state relative-caret-position="799">
+              <caret line="202" column="21" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="21" />
               <folding>
-                <element signature="e#16979#23724#0" />
-                <element signature="e#23791#30954#0" />
-                <element signature="e#31021#33284#0" />
-                <element signature="e#33352#38337#0" />
-                <element signature="e#38405#42679#0" />
-                <element signature="e#42749#46952#0" />
+                <element signature="e#610#925#0" />
+                <element signature="e#983#2840#0" />
+                <element signature="e#2883#3204#0" />
+                <element signature="e#3281#5495#0" />
               </folding>
             </state>
           </provider>
@@ -234,23 +270,24 @@
         <option value="$PROJECT_DIR$/grafoBRASIL.py" />
         <option value="$PROJECT_DIR$/appendID.py" />
         <option value="$PROJECT_DIR$/grafoBRASIL-jaccard.py" />
-        <option value="$PROJECT_DIR$/grafoBRASIL-PMI.py" />
-        <option value="$PROJECT_DIR$/grafoUSA-PMI.py" />
         <option value="$PROJECT_DIR$/BR-USA-ingredients.py" />
         <option value="$PROJECT_DIR$/BR-USA-FR-ingredients.py" />
-        <option value="$PROJECT_DIR$/grafoFranca-PMI.py" />
         <option value="$PROJECT_DIR$/venv/grafoIndia-PMI.py" />
         <option value="$PROJECT_DIR$/grafoAlamanha-PMI.py" />
-        <option value="$PROJECT_DIR$/grafoIndia-PMI.py" />
-        <option value="$PROJECT_DIR$/grafoItalia-PMI.py" />
-        <option value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
         <option value="$PROJECT_DIR$/vetores-alto.py" />
         <option value="$PROJECT_DIR$/../t-sne/tsne_python/tsne.py" />
         <option value="$PROJECT_DIR$/createArrayPMI-ALTO.py" />
         <option value="$PROJECT_DIR$/generalArray-alto.py" />
-        <option value="$PROJECT_DIR$/todos-alto-PMI.py" />
         <option value="$PROJECT_DIR$/todos-baixo-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoBRASIL-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoFranca-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoIndia-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoUSA-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoItalia-PMI.py" />
+        <option value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
         <option value="$PROJECT_DIR$/tsne.py" />
+        <option value="$PROJECT_DIR$/6-tops.py" />
+        <option value="$PROJECT_DIR$/todos-alto-PMI.py" />
       </list>
     </option>
   </component>
@@ -266,18 +303,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Códigos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Códigos" type="462c0819:PsiDirectoryNode" />
+              <item name="Códigos - Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Códigos - Python" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,8 +339,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tsne">
-    <configuration name="createArrayPMI-ALTO" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.todos-alto-PMI">
+    <configuration name="grafoAlemanha-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -315,7 +352,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/createArrayPMI-ALTO.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoAlemanha-PMI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -324,7 +361,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="generalArray-alto" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="grafoItalia-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -336,7 +373,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generalArray-alto.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoItalia-PMI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="grafoUSA-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AllRecipes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grafoUSA-PMI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -358,27 +416,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/todos-alto-PMI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="todos-baixo-PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AllRecipes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/todos-baixo-PMI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -409,19 +446,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.grafoUSA-PMI" />
+      <item itemvalue="Python.grafoItalia-PMI" />
+      <item itemvalue="Python.grafoAlemanha-PMI" />
       <item itemvalue="Python.todos-alto-PMI" />
-      <item itemvalue="Python.todos-baixo-PMI" />
-      <item itemvalue="Python.createArrayPMI-ALTO" />
-      <item itemvalue="Python.generalArray-alto" />
       <item itemvalue="Python.tsne" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tsne" />
-        <item itemvalue="Python.todos-baixo-PMI" />
         <item itemvalue="Python.todos-alto-PMI" />
-        <item itemvalue="Python.generalArray-alto" />
-        <item itemvalue="Python.createArrayPMI-ALTO" />
+        <item itemvalue="Python.tsne" />
+        <item itemvalue="Python.grafoAlemanha-PMI" />
+        <item itemvalue="Python.grafoItalia-PMI" />
+        <item itemvalue="Python.grafoUSA-PMI" />
       </list>
     </recent_temporary>
   </component>
@@ -455,7 +492,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49627978" weight="0.42459017" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49627978" weight="0.3590164" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31311476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,6 +516,11 @@
           <url>file://$PROJECT_DIR$/CDF.py</url>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/todos-baixo-PMI.py</url>
+          <line>404</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -490,7 +532,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/collectLinksAndRecipe-BRASIL.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/requests/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -575,16 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CDF.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grafoBRASIL-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BR-USA-ingredients.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
@@ -696,41 +720,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/grafoIndia-PMI.py" />
-    <entry file="file://$PROJECT_DIR$/grafoUSA-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grafoFranca-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="135" column="44" lean-forward="true" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grafoItalia-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="168" selection-start-line="168" selection-end-line="214" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grafoIndia-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="164" selection-start-line="164" selection-end-line="199" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grafoAlemanha-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="206" selection-start-line="206" selection-end-line="206" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BR-USA-FR-ingredients.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
@@ -746,19 +735,90 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/createArrayPMI-ALTO.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/networkx/classes/reportviews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generalArray-alto.py" />
     <entry file="file://$PROJECT_DIR$/vetores-alto.py" />
     <entry file="file://$PROJECT_DIR$/appendID.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CDF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoBRASIL-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoFranca-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="154" column="69" lean-forward="true" selection-start-line="154" selection-start-column="69" selection-end-line="154" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoIndia-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="113" column="33" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoUSA-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="213" column="40" selection-start-line="213" selection-start-column="40" selection-end-line="213" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoItalia-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grafoAlemanha-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="197" column="23" selection-start-line="197" selection-start-column="23" selection-end-line="197" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todos-baixo-PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="700" column="41" lean-forward="true" selection-start-line="700" selection-end-line="700" selection-end-column="41" />
+          <folding>
+            <element signature="e#227#733#0" />
+            <element signature="e#845#6782#0" />
+            <element signature="e#6784#14110#1" />
+            <element signature="e#14217#22231#0" />
+            <element signature="e#22331#22472#0" />
+            <element signature="e#22523#23322#0" />
+            <element signature="e#23351#23406#0" />
+            <element signature="e#23444#23609#0" />
+            <marker date="1564341891841" expanded="true" signature="24949:25629" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/6-tops.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/networkx/classes/reportviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="177" selection-start-line="177" selection-end-line="177" />
         </state>
       </provider>
     </entry>
@@ -771,37 +831,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todos-alto-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="28" column="60" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="60" />
+        <state relative-caret-position="275">
+          <caret line="343" column="123" selection-start-line="343" selection-start-column="123" selection-end-line="343" selection-end-column="123" />
           <folding>
             <element signature="e#227#733#0" />
-            <marker date="1562272638244" expanded="true" signature="17569:17571" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todos-baixo-PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="235" column="134" selection-start-line="235" selection-start-column="134" selection-end-line="235" selection-end-column="134" />
-          <folding>
-            <element signature="e#16979#23724#0" />
-            <element signature="e#23791#30954#0" />
-            <element signature="e#31021#33284#0" />
-            <element signature="e#33352#38337#0" />
-            <element signature="e#38405#42679#0" />
-            <element signature="e#42749#46952#0" />
+            <element signature="e#845#6782#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tsne.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="220" column="39" lean-forward="true" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="39" />
+        <state relative-caret-position="799">
+          <caret line="202" column="21" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="21" />
           <folding>
-            <element signature="e#491#509#0" expanded="true" />
-            <marker date="1562289274196" expanded="true" signature="5675:6051" ph="..." />
+            <element signature="e#610#925#0" />
+            <element signature="e#983#2840#0" />
+            <element signature="e#2883#3204#0" />
+            <element signature="e#3281#5495#0" />
           </folding>
         </state>
       </provider>

@@ -357,10 +357,10 @@ def calculaCentralidade(grafo):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-total-baixo.txt", "a")
+    top50 = open("top100-total-baixo.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 65):
+        if(top < 110):
             top = top + 1
             print(grafo.nodes[item]['ingredienteEN'])
             top50.write(str(grafo.nodes[item]['ingredienteEN']) + ": " + str(dicionario[item]) + "\n")
@@ -374,13 +374,40 @@ def arrayToTSNE(grafo):
             str(grafo.nodes[i]['brasil']) + ":" + str(grafo.nodes[i]['franca']) + ":" + str(grafo.nodes[i]['alemanha']) + ":" +
             str(grafo.nodes[i]['italia']) + ":" + str(grafo.nodes[i]['india']) + ":" + str(grafo.nodes[i]['eua']) + "\n")
 
-
 def geraArquivoTXT(grafo):
+    """
+
+    :param grafo: grafo com os links do PMI feitos
+    :return: arquivo txt com a quantidade de receitas
+
+    """
     qtdadeReceitas = open("qtdadeReceitas-baixo.txt", "a")
 
     for i in range(len(grafo) - 1):
         print(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "").replace("[", ""))
         qtdadeReceitas.write(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "") + "\n")
+
+
+def changeArchive(arquivoQuantidade):
+    """
+    pega o arquivo com a quantidade de receitas e transforma em arquivo binário
+    :param arquivoQuantidade:
+    :return:
+    """
+    binarioReceitas = open("binarioReceitas-baixo.txt", "a")
+
+    with open(arquivoQuantidade) as file:
+        for line in file:
+            newLine = [0, 0, 0, 0, 0, 0]
+            lineFormated = line.replace(", ",":").replace("]", "").replace("[", "")
+            for i in range(0,6):
+                print(lineFormated.split(":")[i])
+                if lineFormated.split(":")[i] != "0":
+                    newLine[i] = 1
+
+            binarioReceitas.write(str(newLine).replace("[", "").replace(", ", ":").replace("]", "") + "\n")
+
+
 
 
 # MAIN
@@ -663,15 +690,15 @@ stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
                   "mixed", "toasted", "'Dressing", "spray", "seeded", "'cooking", "inch", "plain", "1/2-inch", "container",
                   "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown"])
 
-lista_todos_total = open("lista-total-todos.txt", "a")
-criaNos("BR-pt-en-baixo.txt", "FR-fr-en-baixo.txt", "AL-al-en-baixo.txt", "IT-it-en-baixo.txt", "top50-INDIA-baixo.txt", "top50-USA-baixo.txt", grafo, lista_todos_total)
-arrayToTSNE(grafo)
-insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
-geraArquivoTXT(grafo)
+#lista_todos_total = open("lista-total-todos.txt", "a")
+#criaNos("BR-pt-en-baixo.txt", "FR-fr-en-baixo.txt", "AL-al-en-baixo.txt", "IT-it-en-baixo.txt", "top100-INDIA-baixo.txt", "top100-USA-baixo.txt", grafo, lista_todos_total)
+#arrayToTSNE(grafo)
+#insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
+#geraArquivoTXT(grafo)
 #criaLinks(grafo, len(grafo))
 #salvaGrafo(grafo)
 #defineTops(calculaCentralidade(grafo))
-
+changeArchive("qtdadeReceitas-baixo.txt")
 
 
 

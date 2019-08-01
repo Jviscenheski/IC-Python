@@ -150,10 +150,10 @@ def calculaCentralidade(grafoBR):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50BAIXO.txt", "a")
+    top50 = open("top100-Brasil-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 50):
+        if(top < 150):
             top = top + 1
             print(grafoBR.nodes[item]['ingredient'])
             top50.write(str(grafoBR.nodes[item]['ingredient']) + ": " + str(dicionario[item]) + "\n")
@@ -233,7 +233,7 @@ ingredientsDictionary = []
 dicFinal = dict(ingredientsDictionary)
 
 for i in range(0,7794):
-    if(calculaScore(dataframeBR, i) < 15):
+    if(calculaScore(dataframeBR, i) >= 35):
         ingredients = dataframeBR.loc[i, "ingredients"]
         category =dataframeBR.loc[i, "category:"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeBR.loc[i, "_id"], category)

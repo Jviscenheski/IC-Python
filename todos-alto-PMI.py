@@ -139,8 +139,8 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
 def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
 
-    # primeiro analisa as receitas brasileiras
-    for i in range(0,7794):                                                                     # controla o dataframe                                                                # controla o grafo
+    # primeiro analisa as receitas brasileiras 7794
+    for i in range(0,20):                                                                     # controla o dataframe                                                                # controla o grafo
         listIngredient = filtraIngredientes(dataframeBR.loc[i, "ingredients"], stopWordsBR)     # pega os ingredientes de uma receita
         for item in listIngredient:                                                             # controla a lista de ingredientes
             for j in range(0, len(grafo)):
@@ -154,8 +154,8 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas'] ))
                     print("achou ingrediente BR!")
 
-    # analisando as receitas francesas
-    for i in range(0, 5568):                                                                    # controla o dataframe
+    # analisando as receitas francesas 5568
+    for i in range(0, 20):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = filtraIngredientes(dataframeFR.loc[i, "ingredients"],
                                                 stopWordsFR)                                   # pega os ingredientes de uma receita
@@ -170,8 +170,8 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente FR")
 
-    # analisando as receitas alemãs
-    for i in range(0, 6985):                                                                    # controla o dataframe
+    # analisando as receitas alemãs 6985
+    for i in range(0, 20):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = filtraIngredientes(dataframeAL.loc[i, "ingredients"],
                                                 stopWordsAL)                                    # pega os ingredientes de uma receita
@@ -186,8 +186,8 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente AL")
 
-    # analisando as receitas italianas
-    for i in range(0, 4006):                                                            # controla o dataframe
+    # analisando as receitas italianas 4006
+    for i in range(0, 20):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
             listIngredient = filtraIngredientes(dataframeIT.loc[i, "ingredients"],
                                                 stopWordsIT)                            # pega os ingredientes de uma receita
@@ -202,8 +202,8 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente IT")
 
-    # analisando as receitas indianas
-    for i in range(0, 967):                                                            # controla o dataframe
+    # analisando as receitas indianas 967
+    for i in range(0, 20):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
             listIngredient = filtraIngredientes(dataframeIN.loc[i, "ingredients"],
                                                 stopWordsIN)                           # pega os ingredientes de uma receita
@@ -218,8 +218,8 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente IN")
 
-    # analisa as receitas estadunidenses
-    for i in range(0, 12167):                                                                             # controla o dataframe
+    # analisa as receitas estadunidenses 12167
+    for i in range(0, 20):                                                                             # controla o dataframe
         for j in range(0, len(grafo)):                                                                    # controla o grafo
             listIngredient = filtraIngredientes(dataframeUSA.loc[i, "ingredients"], stopWordsUSA)         # pega os ingredientes de uma receita
             for item in listIngredient:                                                                   # controla a lista de ingredientes
@@ -248,12 +248,12 @@ def criaLinks(grafo, tam):
     for m in range(0, tam):
         for j in range(0, tam):
             if(grafo.nodes[m]['ingredienteEN'] != grafo.nodes[j]['ingredienteEN'] and grafo.has_edge(m,j) == False):
-                pA = int(grafo.nodes[m]['qtdadeReceitas'])/19961
-                pB = int(grafo.nodes[j]['qtdadeReceitas'])/19961
+                pA = int(sum(grafo.nodes[m]['qtdadeReceitas']))/19961
+                pB = int(sum(grafo.nodes[j]['qtdadeReceitas']))/19961
                 pAB = (calculaReceitasComuns(grafo.nodes[m]['receitas'], grafo.nodes[j]['receitas']))/19961
                 if pB != 0 and pA != 0 and pAB != 0:
                     PMI = math.log(pAB/(pA*pB))
-                    if PMI >= 0.0 and PMI <= 2.0:
+                    if PMI >= 0.0:
                         grafo.add_edge(m, j, weight=PMI)
                         count = count + 1
                         print(str(PMI) + " criou aresta")
@@ -272,13 +272,16 @@ def calculaCentralidade(grafo):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-total-alto.txt", "a")
+    top50 = open("top100-total-alto.txt", "a")
+    top6 = open("top6-todos-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 65):
+        if(top < 150):
             top = top + 1
             print(grafo.nodes[item]['ingredienteEN'])
             top50.write(str(grafo.nodes[item]['ingredienteEN']) + ": " + str(dicionario[item]) + "\n")
+            if(top < 6):
+                top6.write(grafo.nodes[item]['ingredienteEN'] + ":" + str(sum(grafo.nodes[item]['qtdadeReceitas'])) + "\n")
 
 def arrayToTSNE(grafo):
     arrayGeral = open("arrayGeral-alto.txt", "a")
@@ -288,18 +291,57 @@ def arrayToTSNE(grafo):
         arrayGeral.write(
             str(grafo.nodes[i]['brasil']) + ":" + str(grafo.nodes[i]['franca']) + ":" + str(grafo.nodes[i]['alemanha']) + ":" +
             str(grafo.nodes[i]['italia']) + ":" + str(grafo.nodes[i]['india']) + ":" + str(grafo.nodes[i]['eua']) + "\n")
-'''
+
 def imprimeGrafo(grafo):
 
     for i in range(len(grafo)):
         print(grafo.nodes[i]['qtadadeReceitas'])
-'''
+
 def geraArquivoTXT(grafo):
     qtdadeReceitas = open("qtdadeReceitas-alto.txt", "a")
 
     for i in range(len(grafo) - 1):
         print(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "").replace("[", ""))
         qtdadeReceitas.write(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "") + "\n")
+
+def changeArchive(arquivoQuantidade):
+    """
+    pega o arquivo com a quantidade de receitas e transforma em arquivo binário
+    :param arquivoQuantidade:
+    :return:
+    """
+    binarioReceitas = open("binarioReceitas-alto.txt", "a")
+
+    with open(arquivoQuantidade) as file:
+        for line in file:
+            newLine = [0, 0, 0, 0, 0, 0]
+            lineFormated = line.replace(", ",":").replace("]", "").replace("[", "")
+            for i in range(0,6):
+                print(lineFormated.split(":")[i])
+                if lineFormated.split(":")[i] != "0":
+                    newLine[i] = 1
+
+            binarioReceitas.write(str(newLine).replace("[", "").replace(", ", ":").replace("]", "") + "\n")
+
+def makeCombinations(arquivo6top, grafo):
+
+    relations = open("relations-alto.txt", "a")
+    list6 = []
+
+    with open(arquivo6top) as file:
+        for l in file:
+            list6.append(l.split(":")[0])
+
+        for item in list6:                               # pega cada linha do arquivo dos 6 top ingredientes - maior centralidade no grafo total
+            for m in range(0, len(grafo)):              # pega cada nó do grafo completo
+                print(grafo.nodes[m]['ingredienteEN'])
+                if (item == grafo.nodes[m]['ingredienteEN']):             # encontra o ingrediente do txt no grafo
+                    print("achou desgraça")
+                    neighbors = [n for n in grafo.neighbors(m)]     # lista dos vizinhos daquele nó - saber com quais eles têm conexão
+                    for n in neighbors:                             # para cada linha do arquivo 6 top txt
+                        for ingredient in list6:
+                            if(grafo.nodes[n]['ingredienteEN']== ingredient):
+                                relations.write(item+"-"+grafo.nodes[n]['ingredienteEN']+":"+str(grafo[n][m]['weight'])+"\n")
 
 # MAIN
 client = MongoClient()
@@ -581,14 +623,17 @@ stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
                   "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown"])
 
 lista_todos_total = open("lista-total-todos.txt", "a")
-criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top50-INDIA-alto.txt", "top50-USA-alto.txt", grafo, lista_todos_total)
-arrayToTSNE(grafo)
+criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top100-INDIA-alto.txt", "top100-USA-alto.txt", grafo, lista_todos_total)
+#arrayToTSNE(grafo)
 insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
 geraArquivoTXT(grafo)
 #imprimeGrafo(grafo)
-#criaLinks(grafo, len(grafo))
-#salvaGrafo(grafo)
-#defineTops(calculaCentralidade(grafo))
+criaLinks(grafo, len(grafo))
+salvaGrafo(grafo)
+defineTops(calculaCentralidade(grafo))
+changeArchive("qtdadeReceitas-alto.txt")
+
+makeCombinations("top6-todos-alto.txt", grafo)
 
 
 

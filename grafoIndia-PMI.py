@@ -111,7 +111,7 @@ def criaLinks(grafoUSA, tam ,dicFinal):
                 pAB = (calculaReceitasComuns(grafoUSA.nodes[m]['ingredient'], grafoUSA.nodes[j]['ingredient'], dicFinal))/7794
                 if pB != 0 and pA != 0 and pAB != 0:
                     PMI = math.log(pAB/(pA*pB))
-                    if PMI >= 0.0 and PMI <= 2.0:
+                    if PMI >= 0.0:
                         grafoUSA.add_edge(m, j, weight=PMI)
                         count = count + 1
                         print(str(PMI))
@@ -147,10 +147,10 @@ def calculaCentralidade(grafoUSA):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-INDIA-baixo.txt", "a")
+    top50 = open("top100-INDIA-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 50):
+        if(top < 150):
             top = top + 1
             print(grafoUSA.nodes[item]['ingredient'])
             top50.write(str(grafoUSA.nodes[item]['ingredient']) + ": " + str(dicionario[item]) + "\n")
@@ -210,12 +210,12 @@ dicFinal = dict(ingredientsDictionary)
 
 #12167
 for i in range(0,967):
-    if(calculaScore(dataframeIN, i) <= 15.0):
+    if(calculaScore(dataframeIN, i) >= 35.0):
         ingredients = dataframeIN.loc[i, "ingredients"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeIN.loc[i, "_id"])
 
 graphSize = criaNos(grafoUSA, dict(dicFinal))
 criaLinks(grafoUSA, graphSize, dicFinal)
 defineTops(calculaCentralidade(grafoUSA))
-salvaGrafo(grafoUSA)
+#salvaGrafo(grafoUSA)
 

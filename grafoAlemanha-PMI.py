@@ -149,10 +149,10 @@ def calculaCentralidade(grafoUSA):
     return dicCentralidade
 
 def defineTops(dicionario):
-    top50 = open("top50-ALEMANHA-baixo.txt", "a")
+    top50 = open("top100-ALEMANHA-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 65):
+        if(top < 150):
             top = top + 1
             print(grafoUSA.nodes[item]['ingredient'])
             top50.write(str(grafoUSA.nodes[item]['ingredient']) + ": " + str(dicionario[item]) + "\n")
@@ -196,7 +196,7 @@ dicFinal = dict(ingredientsDictionary)
 
 #12167
 for i in range(0,6985):
-    if(calculaScore(dataframeAL, i) <= 15.0):
+    if(calculaScore(dataframeAL, i) >= 35.0):
         ingredients = dataframeAL.loc[i, "ingredients"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeAL.loc[i, "_id"])
 
