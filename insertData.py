@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import json
 
+
 # Use MongoClient to create a connection:
 client = MongoClient()
 

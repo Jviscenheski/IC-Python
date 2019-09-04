@@ -11,7 +11,11 @@ sys.path.append('..')
 sys.path.append('/usr/lib/graphviz/python/')
 sys.path.append('/usr/lib64/graphviz/python/')
 
+
+
 class ingredienteCategoria:
+
+
     def __init__(self, ingrediente, category):
         self.nome = ingrediente
         self.dicCategoria = category
@@ -62,6 +66,7 @@ def criaListaCategorias(ingrediente, category, listaCategoria):
     dicionario = novoIngrediente.getCategoria()
     dicionario[category] = dicionario[category] + 1
     novoIngrediente.setCategoria(dicionario)
+
 
 def criaListaIngredientes(listIngredients, dicFinalIngredients, id, category):
     for i in range(len(listIngredients)):

@@ -5,6 +5,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 import math
 
+
 def filtraIngredientes(ingredients,stopWords):
     wordsFiltered = []
     for sent in sent_tokenize(str(ingredients)):
@@ -18,22 +19,11 @@ def filtraIngredientes(ingredients,stopWords):
     return wordsFiltered
 
 
-def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, grafo, lista_todos_total):
-    br = 0
+def criaNos(arquivoFR, arquivoAL, arquivoIT, grafo, lista_todos_total):
     listaTotal =[]
     # ingredienteLL = na lingua local
 
-    with open(arquivoBR) as file:
-        for line in file:
-            lista_todos_total.write(str(line.split(":")[1]))
-            grafo.add_node(br, ingredienteLL=line.split(":")[0], ingredienteEN=line.split(":")[1].replace("\n", ""),
-                           qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=1, franca=0, alemanha=0, italia=0, india=0, eua=0,
-                           receitas=[], score=0)
-            print("criou no BR: " + line.split(":")[0] + " ou " + line.split(":")[1])
-            listaTotal.append(line.split(":")[1].replace("\n", ""))
-            br = br + 1
-
-    fr = br
+    fr = 0
     with open(arquivoFR) as fileFR:
         for lineFR in fileFR:
             flag = 1
@@ -48,8 +38,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 
             if(flag):
                 grafo.add_node(fr, ingredienteLL=lineFR.split(":")[0], ingredienteEN=lineFR.split(":")[1].replace("\n", ""),
-                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=1, alemanha=0, italia=0, india=0, eua=0,
-                               receitas=[], score=0)
+                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=1, alemanha=0, italia=0, india=0, eua=0, receitas=[])
                 fr = fr + 1
                 lista_todos_total.write(str(lineFR.split(":")[1]))
                 listaTotal.append(lineFR.split(":")[1].replace("\n", ""))
@@ -99,71 +88,10 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
                 listaTotal.append(lineIT.split(":")[1].replace("\n", ""))
                 print("criou na Italia: " + lineIT.split(":")[1])
 
-    ind = it
-    with open(arquivoIN) as fileIN:
-        for lineIN in fileIN:
-            outraFlag2 = 4
-            for k in listaTotal:
-                if(lineIN.split(":")[0].replace("\n", "") == k):              # se este ingrediente já estiver adicionado
-                    for m in range(0, len(grafo)):
-                        if(grafo.nodes[m]['ingredienteEN'] == k):
-                            grafo.nodes[m]['india'] = 1
-                            outraFlag2 = 0
-                            break
-                    break
 
-            if(outraFlag2):
-                grafo.add_node(ind, ingredienteLL=lineIN.split(":")[0], ingredienteEN=lineIN.split(":")[0].replace("\n", ""),
-                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=1, eua=0,
-                               receitas=[], score=0)
-                ind = ind + 1
-                lista_todos_total.write(str(lineIN.split(":")[0]) + "\n")
-                listaTotal.append(lineIN.split(":")[0].replace("\n", ""))
-                print("criou na India: " + lineIN.split(":")[0])
+def insereIDreceitasAndScore(dataframeFR, dataframeAL, dataframeIT):
 
-    us = ind
-    with open(arquivoUSA) as fileUSA:
-        for lineUSA in fileUSA:
-            outraFlag3 = 2
-            for k in listaTotal:
-                if(lineUSA.split(":")[0].replace("\n", "") == k):              # se este ingrediente já estiver adicionado
-                    for m in range(0, len(grafo)):
-                        if(grafo.nodes[m]['ingredienteEN'] == k):
-                            grafo.nodes[m]['eua'] = 1
-                            outraFlag3 = 0
-                            break
-                    break
-
-            if(outraFlag3):
-                grafo.add_node(us, ingredienteLL=lineUSA.split(":")[0].replace("\n", ""),
-                               ingredienteEN=lineUSA.split(":")[0].replace("\n", ""),
-                               qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=0, eua=1,
-                               receitas=[], score=0)
-                us = us + 1
-                lista_todos_total.write(str(lineUSA.split(":")[0]) + "\n")
-                listaTotal.append(lineUSA.split(":")[0].replace("\n", ""))
-                print("criou nos EUA: " + lineUSA.split(":")[0])
-
-def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
-
-    # primeiro analisa as receitas brasileiras 7794
-    for i in range(0,7794):                                                                     # controla o dataframe                                                                # controla o grafo
-        listIngredient = filtraIngredientes(dataframeBR.loc[i, "ingredients"], stopWordsBR)     # pega os ingredientes de uma receita
-        for item in listIngredient:                                                             # controla a lista de ingredientes
-            for j in range(0, len(grafo)):
-                if(grafo.nodes[j]['ingredienteLL'] == item):                                    # se o ingrediente procurado estiver dentro da receita
-                    recipeList = grafo.nodes[j]['receitas']
-                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
-                    if (calculaScore(dataframeBR, i) >= 35):
-                        recipeList.append(dataframeBR.loc[i, "_id"])
-                    grafo.nodes[j]['receitas'] = recipeList                                     # guarda o id desta receita dentro do nó
-                    vetorReceitasPais[0] = len(recipeList)
-                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
-                    grafo.nodes[j]['score'] = calculaScore(dataframeBR,i)
-                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas'] ))
-                    print("achou ingrediente BR!")
-
-    # analisando as receitas francesas 5568
+    # analisando as receitas francesas
     for i in range(0, 5568):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = filtraIngredientes(dataframeFR.loc[i, "ingredients"],
@@ -181,7 +109,7 @@ def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT,
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente FR")
 
-    # analisando as receitas alemãs 6985
+    # analisando as receitas alemãs
     for i in range(0, 6985):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = filtraIngredientes(dataframeAL.loc[i, "ingredients"],
@@ -199,7 +127,7 @@ def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT,
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente AL")
 
-    # analisando as receitas italianas 4006
+    # analisando as receitas italianas
     for i in range(0, 4006):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
             listIngredient = filtraIngredientes(dataframeIT.loc[i, "ingredients"],
@@ -208,7 +136,7 @@ def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT,
                 if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
                     vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
-                    if (calculaScore(dataframeIT, i) >= 35):
+                    if (calculaScore(dataframeIT, i) <= 15):
                         recipeList.append(dataframeIT.loc[i, "_id"])
                     grafo.nodes[j]['receitas'] = recipeList                            # guarda o id desta receita dentro do nó
                     vetorReceitasPais[3] = len(recipeList)
@@ -217,40 +145,6 @@ def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT,
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente IT")
 
-    # analisando as receitas indianas 967
-    for i in range(0, 967):                                                            # controla o dataframe
-        for j in range(0, len(grafo)):                                                  # controla o grafo
-            listIngredient = filtraIngredientes(dataframeIN.loc[i, "ingredients"],
-                                                stopWordsIN)                           # pega os ingredientes de uma receita
-            for item in listIngredient:                                                 # controla a lista de ingredientes
-                if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
-                    recipeList = grafo.nodes[j]['receitas']
-                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
-                    if (calculaScore(dataframeIN, i) >= 35):
-                        recipeList.append(dataframeIN.loc[i, "_id"])
-                    grafo.nodes[j]['receitas'] = recipeList                             # guarda o id desta receita dentro do nó
-                    vetorReceitasPais[4] = len(recipeList)
-                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
-                    grafo.nodes[j]['score'] = calculaScore(dataframeIN, i)
-                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
-                    print("achou ingrediente IN")
-
-    # analisa as receitas estadunidenses 12167
-    for i in range(0, 12167):                                                                             # controla o dataframe
-        for j in range(0, len(grafo)):                                                                    # controla o grafo
-            listIngredient = filtraIngredientes(dataframeUSA.loc[i, "ingredients"], stopWordsUSA)         # pega os ingredientes de uma receita
-            for item in listIngredient:                                                                   # controla a lista de ingredientes
-                if (grafo.nodes[j]['ingredienteEN'] == item):                                             # se o ingrediente procurado estiver dentro da receita
-                    recipeList = grafo.nodes[j]['receitas']
-                    vetorReceitasPais = grafo.nodes[j]['qtdadeReceitas']
-                    if (calculaScore(dataframeUSA, i) >= 35):
-                        recipeList.append(dataframeUSA.loc[i, "_id"])
-                    grafo.nodes[j]['receitas'] = recipeList                                               # guarda o id desta receita dentro do nó
-                    vetorReceitasPais[5] = len(recipeList)
-                    grafo.nodes[j]['qtdadeReceitas'] = vetorReceitasPais
-                    grafo.nodes[j]['score'] = calculaScore(dataframeUSA, i)
-                    print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
-                    print("achou ingrediente USA")
 
 # Calcula a quantidade, não é qualitativo!
 def calculaReceitasComuns(listIngre1, listIngre2):
@@ -260,6 +154,7 @@ def calculaReceitasComuns(listIngre1, listIngre2):
             if m == n:
                 qtdade = qtdade + 1
     return qtdade
+
 
 def calculaScore(dataframe, i):
 
@@ -277,18 +172,19 @@ def calculaScore(dataframe, i):
 
     return score
 
+
 # Com base no PMI
 def criaLinks(grafo, tam):
     count = 0
     for m in range(0, tam):
         for j in range(0, tam):
             if(grafo.nodes[m]['ingredienteEN'] != grafo.nodes[j]['ingredienteEN'] and grafo.has_edge(m,j) == False):
-                pA = int(sum(grafo.nodes[m]['qtdadeReceitas']))/19961
-                pB = int(sum(grafo.nodes[j]['qtdadeReceitas']))/19961
-                pAB = (calculaReceitasComuns(grafo.nodes[m]['receitas'], grafo.nodes[j]['receitas']))/19961
+                pA = int(sum(grafo.nodes[m]['qtdadeReceitas']))/16560
+                pB = int(sum(grafo.nodes[j]['qtdadeReceitas']))/16560
+                pAB = (calculaReceitasComuns(grafo.nodes[m]['receitas'], grafo.nodes[j]['receitas']))/16650
                 if pB != 0 and pA != 0 and pAB != 0:
                     PMI = math.log(pAB/(pA*pB))
-                    if PMI >= 0.0:
+                    if PMI >= 0.0 and PMI <= 2.0:
                         grafo.add_edge(m, j, weight=PMI)
                         count = count + 1
                         print(str(PMI) + " criou aresta")
@@ -296,8 +192,10 @@ def criaLinks(grafo, tam):
     print("NUMERO DE ARESTAS: " + str(count))
     #return pmiList
 
+
 def salvaGrafo(grafo):
-    nx.drawing.nx_pydot.write_dot(grafo, "todos-ALTO.dot")
+    nx.drawing.nx_pydot.write_dot(grafo, "europe-ALTO.dot")
+
 
 def calculaCentralidade(grafo):
     dicCentralidade = nx.algorithms.centrality.degree_centrality(grafo)
@@ -306,20 +204,19 @@ def calculaCentralidade(grafo):
 
     return dicCentralidade
 
+
 def defineTops(dicionario):
-    top50 = open("top100-total-alto.txt", "a")
-    top6 = open("top6-todos-alto.txt", "a")
+
+    top6 = open("top6-europe-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
-        if(top < 150):
+        if (top < 7):
+            top6.write(grafo.nodes[item]['ingredienteEN'] + ":" + str(sum(grafo.nodes[item]['qtdadeReceitas'])) + "\n")
             top = top + 1
-            print(grafo.nodes[item]['ingredienteEN'])
-            top50.write(str(grafo.nodes[item]['ingredienteEN']) + ": " + str(dicionario[item]) + "\n")
-            if(top < 7):
-                top6.write(grafo.nodes[item]['ingredienteEN'] + ":" + str(sum(grafo.nodes[item]['qtdadeReceitas'])) + "\n")
+
 
 def arrayToTSNE(grafo):
-    arrayGeral = open("arrayGeral-alto.txt", "a")
+    arrayGeral = open("arrayGeral-baixo.txt", "a")
 
     for i in range(len(grafo) - 1):
         print(str(grafo.nodes[i]['brasil']) + str(grafo.nodes[i]['ingredienteEN']))
@@ -327,17 +224,20 @@ def arrayToTSNE(grafo):
             str(grafo.nodes[i]['brasil']) + ":" + str(grafo.nodes[i]['franca']) + ":" + str(grafo.nodes[i]['alemanha']) + ":" +
             str(grafo.nodes[i]['italia']) + ":" + str(grafo.nodes[i]['india']) + ":" + str(grafo.nodes[i]['eua']) + "\n")
 
-def imprimeGrafo(grafo):
-
-    for i in range(len(grafo)):
-        print(grafo.nodes[i]['qtadadeReceitas'])
 
 def geraArquivoTXT(grafo):
-    qtdadeReceitas = open("qtdadeReceitas-alto.txt", "a")
+    """
+
+    :param grafo: grafo com os links do PMI feitos
+    :return: arquivo txt com a quantidade de receitas
+
+    """
+    qtdadeReceitas = open("europe-qtdadeReceitas-alto.txt", "a")
 
     for i in range(len(grafo) - 1):
         print(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "").replace("[", ""))
         qtdadeReceitas.write(str(grafo.nodes[i]['qtdadeReceitas']).replace(", ",":").replace("]", "") + "\n")
+
 
 def changeArchive(arquivoQuantidade):
     """
@@ -345,22 +245,23 @@ def changeArchive(arquivoQuantidade):
     :param arquivoQuantidade:
     :return:
     """
-    binarioReceitas = open("binarioReceitas-alto.txt", "a")
+    binarioReceitas = open("europe-binarioReceitas-alto.txt", "a")
 
     with open(arquivoQuantidade) as file:
         for line in file:
-            newLine = [0, 0, 0, 0, 0, 0]
+            newLine = [0, 0, 0]
             lineFormated = line.replace(", ",":").replace("]", "").replace("[", "")
-            for i in range(0,6):
+            for i in range(0,3):
                 print(lineFormated.split(":")[i])
                 if lineFormated.split(":")[i] != "0":
                     newLine[i] = 1
 
             binarioReceitas.write(str(newLine).replace("[", "").replace(", ", ":").replace("]", "") + "\n")
 
+
 def makeCombinations(arquivo6top, grafo):
 
-    relations2 = open("relations-alto.txt", "a")
+    relations2 = open("europe-relations-alto.txt", "a")
     list6 = []
     dicIngredientes = {}
 
@@ -382,82 +283,24 @@ def makeCombinations(arquivo6top, grafo):
 
     return list6, dicIngredientes
 
+
 def relations3by3(relations2, grafo, list6, dicionarioIngredientes):
 
     list6_dupla = []
 
     print(list6_dupla)
 
+
 # MAIN
+
 client = MongoClient()
 db = client['AllrecipesDB']
 
-dataframeBR = pd.DataFrame(list(db.recipesFormated.find({"id": "1"})))          # pega dados do Brasil
 dataframeFR = pd.DataFrame(list(db.recipesFormated.find({"id": "2"})))         # pega dados da França
 dataframeAL = pd.DataFrame(list(db.recipesFormated.find({"id": "3"})))         # pega dados da Alemanha
 dataframeIT = pd.DataFrame(list(db.recipesFormated.find({"id": "4"})))         # pega dados da Italia
-dataframeIN = pd.DataFrame(list(db.recipesFormated.find({"id": "5"})))         # pega dados da India
-dataframeUSA = pd.DataFrame(list(db.recipesFormated.find({"id": "6"})))         # pega dados dos USA
 
 grafo = nx.Graph()
-
-stopWordsBR = set(stopwords.words('portuguese'))
-stopWordsBR.update(["colheres","pitada", "suco","molho", "picado","2'", "2 '" "picada'","pó", "colher", "extravirgem",
-                  "xícara", "xícaras", "\'", "sopa", "lata", "caixinha", "caixa", "chá", "dentes", "gosto", "vinho",
-                  ",", "1", "2", "2 '", "3", "4", "5", "6", "creme", "reino", "ml", "kg", "g", "dente", "1/2","2/3", "1/4",
-                  "gemas", "fresco", "extrato", "pronto", "forte", "ambiente", "temperatura", "biscoito", "]", "[",
-                  "pacote","sabor", "qualquer","fervente", "derretida", "latas", "200g", "'Suco", "raspas", "3/4", "'150", "'250",
-                  "'450", "'170", "gelatina", "biscoitos", "rodelas", "maduras", "cheia", "opcional", "levemente",
-                  "médias", "cruas", "químico", "opcional", "mesma", "medida", "litros", "paus", "ralado",
-                  "torrado", "decorar", "litro", "confeiteiro","cream", "gordura", "corante", "alimentício", "embalagem", "concentrado",
-                  "gelado", "vaca", "polpa", "frescos", "'Algumas", "'Calda", "'1kg", "xicara", "xarope", "vermelhos",
-                  "vermelho","vermelhas", "vermelha", "verdes", "verde", "veja","vegetal", "variados", "variadas",
-                  "untar", "unidades", "umedecer","triturados", "triturado", "trituradas", "triturada",
-                  "tripa", "total", "torta", "torrada", "torradas", "tirinhas", "'200ml", "'30g", "'50g", "'60g", "'Caldo", "'Casca",
-                  "'Cerca", "'Fatias", "'Folhas", "'Gotas", "'Massa", "'Molho", "'Para", "'Raspas", "'Rodelas", "'Tempero",
-                  "1-1/2", "agulhinha", "amanhecido", "amanhecidos", "amarelo", "amarela", "amargo", "amassada", "amassada",
-                  "amassadas", "amassado", "amassados", "amaericana", "americano", "americanos", "amolecida", "amolecido",
-                  "anéis", "anjo", "aparadas","aproximadamente", "árboreo", "árborio", "asas", "assado", "",
-                  "azedo", "balas", "barra", "base", "baste", "batida", "batidas", "batido", "batidos", "biológico", "bolacha",
-                  "bolachas", "bolas", "bolo", "bordo", "bovina", "branca", "brancas", "broto", "brotos", "bulbo", "buquês",
-                  "cabeça", "cabeças", "cabelo", "cabinhos", "cabra", "cada", "caixas", "caixinhas", "calda", "caldo", "cálice",
-                  "caracolinho", "caramelizar", "caroço", "caroços", "casa", "casca", "cascas", "cerca", "clara", "claras",
-                  "claro", "cobrir", "comprada", "comprado", "comprimento", "comum", "concha", "conchinha", "condensado",
-                  "conforme", "congelada", "congeladas", "congelado", "congelados", "conserva", "consistência", "copo",
-                  "copos", "cortada", "cortadas", "cortado", "cortados", "coxa", "coxão", "coxas", "cozida", "cozidas",
-                  "cozimento", "cozidos", "cozinhar", "cremoso", "cristal", "cristalizadas", "cruas", "cubinhos", "cubos",
-                  "cubo", "culinária", "curto", "decoração", "defumada", "defumado", "descascada", "descascadas",
-                  "descascado", "descascados", "descongelada", "descongolado", "desfiada", "desfiado", "desidratada",
-                  "desidratado", "desnatado", "desossado", "desossados", "dessalgado", "dica", "diet", "disco", "discos",
-                  "dividida", "divididas", "dividido", "divididos", "doce", "duro", "empanar", "enfeitar", "ensopado",
-                  "envelope", "envelopes", "escorridas", "escorrida", "escorrido", "escorridos", "escovadas", "escuro",
-                  "esfarelado", "esmigalhado", "espessura", "espremido", "espremidos", "espremida", "espremidas", "essência",
-                  "estourada", "farelo", "fatia", "fatiada", "fatiadas", "fatiado", "fatiados", "fatias", "feito", "fervendo",
-                  "fina", "finas", "fino", "finos", "finalmente", "firme", "firmes", "flocos", "flor", "flores", "floretes",
-                  "folha", "folhas", "folhadas", "forma", "formato", "forno", "francês", "francesa", "franceses", "fresca",
-                  "fria", "frio", "fritar", "fritura", "fruta", "frutas", "gado", "garrafa", "gelada", "gelo", "generosa",
-                  "germe", "goma", "gomos", "gotas", "gramas", "grande", "grandes", "granulado", "granulada", "gravatinha",
-                  "grego", "grossas", "grosseiramente", "grosso", "grossos", "hora", "incolor", "inglês", "instantânea",
-                  "instantâneo", "integral", "inteira", "inteiras", "inteiro", "inteiros", "italianas", "italiano",
-                  "japonês", "lascas", "lavados", "lavado", "lavadas", "lavada", "legumes", "ligeiramente", "light",
-                  "limpa", "limpas", "limpo", "limpos", "liquidificador", "líquido", "lisa", "louro", "maço", "maços",
-                  "madeira", "madura", "maduras", "maduro", "maduros", "magra", "magro", "mãos", "maria", "massa", "média",
-                  "médio", "médios", "médias", "meia", "meio", "meio-amargo", "menta", "melhor", "metade", "metades",
-                  "mexicana", "mexicanas", "minas", "miolo", "mirin", "moídas", "moída", "mole", "moído",
-                  "miúdos", "mistura", "morno", "morna", "natural", "necessário", "neve", "nota", "osso", "outro", "outra",
-                  "pacotes", "palha", "palitos", "parafuso", "paris", "parte", "partes", "passas", "pasta", "peça",
-                  "pectina", "pedaçinhos", "pedaço", "pedaços", "peito", "peitos", "pelado", "pelados", "pele", "peneira",
-                  "peneirada", "peneiradas", "peneirado", "penne", "pequena", "pequenas", "pequeno", "pequenos",
-                  "picada", "picadas", "picadinha", "picadinhas", "picadinho", "picadinhos", "picante", "pincelar", "pitadas",
-                  "pode", "polvilhar", "ponto", "pote", "pouco", "povilhar", "prato", "pré-cozida", "preferência", "preta",
-                  "pretas", "pronta", "proteína", "punhado", "qualidade", "quanto", "quartos", "quatro", "quente", "quilo",
-                  "quiser", "raiz", "raiz-forte", "ralada", "raladas", "ralado", "ralados", "ralo", "rama", "raminho",
-                  "raminhos", "ramo", "ramos", "rasa", "rasas", "raso", "rasgadas", "receita", "recheadas", "recheio",
-                  "refinada", "refogar", "reservar", "regar", "rodela", "rosa", "rosca", "roxa", "roxas", "roxo", "roxas",
-                  "salada", "salgado", "salpicar", "seco", "secos", "seca", "secas", "seleta", "semi-desnatado", "semidesnatado",
-                  "sentido", "separadas", "separada", "separados", "servir", "sobras", "sobremesa", "solúvel", "sortidas",
-                  "suave", "suficiente", "tablete", "tabletes", "talo", "talos", "tamanho", "tempero", "temperada",
-                  "temperado", "temperar", "temperos", "tipo", "tiras", "vidro", "fresca", "cozido", "picado"])
 
 stopWordsFR = set(stopwords.words('french'))
 stopWordsFR.update(["gro", "dxc3xa9s", "quelques", "grose", "groses", "poivre", "concasxc3xa9es",
@@ -592,91 +435,20 @@ stopWordsIT.update(["cucchiaio", "pizzico", "succo", "sugo", "tritato", "2", "2"
                   "'200ml", "fuso", "dolce", "piccola", "estratto", "semolato", "fresche","salsa", "mais",
                   "noci", "bianca", "nota", "'120ml"])
 
-stopWordsIN = set(stopwords.words("english"))
-stopWordsIN.update(["'xc2xbd","tbsp","'75g","spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cups", "soup", "can",
-                  "box", "box", "tea", "'50g", "'250ml", "'225ml",
-                  "teeth", "taste", "wine", " 2, 2, 3, 4, 5, 6, cream, kingdom, ml, kg, g, tooth, / 2 "," 2/3 "," 1/4 ",
-                  "Gems","Fresh","Extract","Ready","Strong","Environment ","Temperature","Biscuit", "package",
-                  "flavor", "any", "boiling", "melted", "cans", "200g", "juice", "rasps", "3/4",
-                  "'150", "250", "450 ", "170", "gelatin", "biscuits", "slices", "ripe", "full", "optional", "average",
-                  "raw", "chemical", "optional", "same", "measure", "liters", "sticks", "grated","roasted",
-                  "decorate", "liter", "confectioner", "cream", "fat", "dye", "food", "packaging", "concentrate","ice cream",
-                  "cow", "pulp", "fresh", "some", "'syrup", "1kg", "cupcake", "syrup", "red","green", "see", "vegetable",
-                  "miscellaneous", "pellets", "cut", "crushed","ground","gut", "total", "pie", "toast", "strips",
-                  "'200ml'", "30g", "50g", "Yellow", "yellow", "bitter", "crumpled","kneaded","american", "softened", "angel",
-                  "trimmed", "about", "arboreal", "wings", "roast", "baked", "bales", "bar", "base", "baste",
-                  "beat", "beats", "beaten", "milkshakes","head", "heads", "hair", "cabins", "goat", "each", "boxes",
-                  "caracelinho", "caramelizar", "lump", "cores", "house", "bark", "peels", "fence","clear", "cover", "bought",
-                  "length", "common", "conch", "frozen", "frozen", "preserves", "consistency", "cup","cut", "thigh", "thigh",
-                  "cooked","cooking", "creamy", "candied", "raw", "cubes", "cube", "cuisine", "short", "decoration",
-                  " smoked ", "peeled", "thawed", "deglazed", "shredded", "dehydrated", "dessicated", "diet", "disc",
-                  "divided", "sweet", "hard", "bread","drained", "brushed", "dark","crushed", "squeezed", "sliced", "made",
-                  "boiling","fine", "finally", "firm", "flakes", "flower", "flowers", "florets","French", "fresh", "form",
-                  "cold", "fry", "fruit", "cattle", "bottle", "ice","germ", "gum", "buds", "drops", "grams", "large",
-                  "Greek", "thick", "roughly", "hour", "colorless", "English", "integer", "italian", "washed", "vegetables",
-                  "lightly", "light","clean", "blender", "liquid", "flat","wood", "mature", "thin", "hands", "mary","medium",
-                  "half", "half-bitter", "mint", "best", "Mexican", "mines", "crumb", "crushed", "other", "kids", "mix", "warm",
-                  "natural", "needed", "snow","packs", "straw", "sticks", "screw", "paris", "part", "parts", "raisins", "paste",
-                  "pectin", "pieces", "chest", "breasts", "peeled", "skin", "sifted", "penne", "small","chopped", "spicy", "brush",
-                  "can", "sprinkle", "point", "pot", "little", "plate", "precooked", "preference","black", "ready", "protein",
-                  "handful", "quality", "how much", "rooms", "four", "hot","root", "grated","branches","shallow", "ripped",
-                  "recipe", "stuffed", "filling","dried", "selective", "semi-skimmed", "separated", "serve", "leftovers",
-                  "dessert", "soluble", "assorted","soft", "sufficient", "tablet", "tablets", "stem", "stalks", "size",
-                  "seasoning", "tempered","spices", "type", "strips", "glass", "fresh", "tablespoons", "powder",
-                  "cups","pounds","boneless","skinless","teapoon","white","minced","ounce","pata","diced","pound","all-purpose",
-                  "teaspoons","breat","halve", "teaspoon", "tablespoon", "halved", "leaves", "freshly", "ounces", "bunch",
-                  "coarsely", "quartered", "thinly", "finely", "rinsed", "crumbled", "removed", "baby", "bell", "pitted",
-                  "Italian", "broth", "extra-virgin", "cubed", "packages", "halves", "juiced", "1-inch", "uncooked",
-                  "mixed", "toasted", "'Dressing", "spray", "seeded", "'cooking", "inch", "plain", "1/2-inch", "container",
-                  "cored", "whole", "chunk", "boiled", "baking",  "chilli", "chillies", "frying", "piece", "clove"])
-
-stopWordsUSA = set(stopwords.words('english'))
-stopWordsUSA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cups", "soup", "can", "box", "box", "tea",
-                  "teeth", "taste", "wine", " 2, 2, 3, 4, 5, 6, cream, kingdom, ml, kg, g, tooth, / 2 "," 2/3 "," 1/4 ",
-                  "Gems","Fresh","Extract","Ready","Strong","Environment ","Temperature","Biscuit", "package",
-                  "flavor", "any", "boiling", "melted", "cans", "200g", "juice", "rasps", "3/4",
-                  "'150", "250", "450 ", "170", "gelatin", "biscuits", "slices", "ripe", "full", "optional", "average",
-                  "raw", "chemical", "optional", "same", "measure", "liters", "sticks", "grated","roasted",
-                  "decorate", "liter", "confectioner", "cream", "fat", "dye", "food", "packaging", "concentrate","ice cream",
-                  "cow", "pulp", "fresh", "some", "'syrup", "1kg", "cupcake", "syrup", "red","green", "see", "vegetable",
-                  "miscellaneous", "pellets", "cut", "crushed","ground","gut", "total", "pie", "toast", "strips",
-                  "'200ml'", "30g", "50g", "Yellow", "yellow", "bitter", "crumpled","kneaded","american", "softened", "angel",
-                  "trimmed", "about", "arboreal", "wings", "roast", "baked", "bales", "bar", "base", "baste",
-                  "beat", "beats", "beaten", "milkshakes","head", "heads", "hair", "cabins", "goat", "each", "boxes",
-                  "caracelinho", "caramelizar", "lump", "cores", "house", "bark", "peels", "fence","clear", "cover", "bought",
-                  "length", "common", "conch", "frozen", "frozen", "preserves", "consistency", "cup","cut", "thigh", "thigh",
-                  "cooked","cooking", "creamy", "candied", "raw", "cubes", "cube", "cuisine", "short", "decoration",
-                  " smoked ", "peeled", "thawed", "deglazed", "shredded", "dehydrated", "dessicated", "diet", "disc",
-                  "divided", "sweet", "hard", "bread","drained", "brushed", "dark","crushed", "squeezed", "sliced", "made",
-                  "boiling","fine", "finally", "firm", "flakes", "flower", "flowers", "florets","French", "fresh", "form",
-                  "cold", "fry", "fruit", "cattle", "bottle", "ice","germ", "gum", "buds", "drops", "grams", "large",
-                  "Greek", "thick", "roughly", "hour", "colorless", "English", "integer", "italian", "washed", "vegetables",
-                  "lightly", "light","clean", "blender", "liquid", "flat","wood", "mature", "thin", "hands", "mary","medium",
-                  "half", "half-bitter", "mint", "best", "Mexican", "mines", "crumb", "crushed", "other", "kids", "mix", "warm",
-                  "natural", "needed", "snow","packs", "straw", "sticks", "screw", "paris", "part", "parts", "raisins", "paste",
-                  "pectin", "pieces", "chest", "breasts", "peeled", "skin", "sifted", "penne", "small","chopped", "spicy", "brush",
-                  "can", "sprinkle", "point", "pot", "little", "plate", "precooked", "preference","black", "ready", "protein",
-                  "handful", "quality", "how much", "rooms", "four", "hot","root", "grated","branches","shallow", "ripped",
-                  "recipe", "stuffed", "filling","dried", "selective", "semi-skimmed", "separated", "serve", "leftovers",
-                  "dessert", "soluble", "assorted","soft", "sufficient", "tablet", "tablets", "stem", "stalks", "size",
-                  "seasoning", "tempered","spices", "type", "strips", "glass", "fresh", "tablespoons", "powder",
-                  "cups","pounds","boneless","skinless","teapoon","white","minced","ounce","pata","diced","pound","all-purpose",
-                  "teaspoons","breat","halve", "teaspoon", "tablespoon", "halved", "leaves", "freshly", "ounces", "bunch",
-                  "coarsely", "quartered", "thinly", "finely", "rinsed", "crumbled", "removed", "baby", "bell", "pitted",
-                  "Italian", "broth", "extra-virgin", "cubed", "packages", "halves", "juiced", "1-inch", "uncooked",
-                  "mixed", "toasted", "'Dressing", "spray", "seeded", "'cooking", "inch", "plain", "1/2-inch", "container",
-                  "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown"])
-
 lista_todos_total = open("lista-total-todos.txt", "a")
-criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top100-INDIA-alto.txt", "top100-USA-alto.txt", grafo, lista_todos_total)
-insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
+criaNos("FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", grafo, lista_todos_total)
+#arrayToTSNE(grafo)
+insereIDreceitasAndScore(dataframeFR, dataframeAL, dataframeIT)
 geraArquivoTXT(grafo)
 criaLinks(grafo, len(grafo))
 salvaGrafo(grafo)
 defineTops(calculaCentralidade(grafo))
-changeArchive("qtdadeReceitas-alto.txt")
-lista6, dicionarioIngredientes = makeCombinations("top6-todos-alto.txt", grafo)
-relations3by3("relations-alto.txt", grafo, lista6, dicionarioIngredientes)
+changeArchive("europe-qtdadeReceitas-alto.txt")
+lista6, dicionarioIngredientes = makeCombinations("top6-europe-alto.txt", grafo)
+relations3by3("europe-relations-alto.txt", grafo, lista6, dicionarioIngredientes)
+
+
+
 
 
 

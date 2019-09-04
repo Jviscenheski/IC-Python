@@ -17,6 +17,7 @@ def filtraIngredientes(ingredients,stopWords):
                 wordsFiltered.append(filtered_sentence[i])
     return wordsFiltered
 
+
 def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, grafo, lista_todos_total):
     br = 0
     listaTotal =[]
@@ -142,6 +143,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
                 listaTotal.append(lineUSA.split(":")[0].replace("\n", ""))
                 print("criou nos EUA: " + lineUSA.split(":")[0])
 
+
 def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
 
     # primeiro analisa as receitas brasileiras
@@ -249,6 +251,7 @@ def insereIDreceitasAndScore(dataframeBR, dataframeFR, dataframeAL, dataframeIT,
                     grafo.nodes[j]['score'] = calculaScore(dataframeUSA, i)
                     print("qtdade  " + str(grafo.nodes[j]['qtdadeReceitas']))
                     print("achou ingrediente USA")
+
 
 # Calcula a quantidade, não é qualitativo!
 def calculaReceitasComuns(listIngre1, listIngre2):

@@ -11,6 +11,7 @@ sys.path.append('..')
 sys.path.append('/usr/lib/graphviz/python/')
 sys.path.append('/usr/lib64/graphviz/python/')
 
+
 class ingredienteCategoria:
     def __init__(self, ingrediente, category):
         self.nome = ingrediente
@@ -28,6 +29,7 @@ class ingredienteCategoria:
     def getCategoria(self):
         return self.dicCategoria
 
+
 def calculaScore(dataframeAL, i):
 
     score1 = math.log(float(dataframeAL.loc[i, "numberOfEvaluations"]) + 1.0, 10)
@@ -44,6 +46,7 @@ def calculaScore(dataframeAL, i):
 
     return score
 
+
 def filtraIngredientes(ingredients,stopWords):
     wordsFiltered = []
     for sent in sent_tokenize(str(ingredients)):
@@ -56,12 +59,14 @@ def filtraIngredientes(ingredients,stopWords):
                 wordsFiltered.append(filtered_sentence[i])
     return wordsFiltered
 
+
 def criaListaCategorias(ingrediente, category, listaCategoria):
     dicionario = dict(listaCategoria)
     novoIngrediente = ingredienteCategoria(ingrediente, category)
     dicionario = novoIngrediente.getCategoria()
     dicionario[category] = dicionario[category] + 1
     novoIngrediente.setCategoria(dicionario)
+
 
 def criaListaIngredientes(listIngredients, dicFinalIngredients, id):
     for i in range(len(listIngredients)):
@@ -81,16 +86,16 @@ def criaListaIngredientes(listIngredients, dicFinalIngredients, id):
             receitas.append(id)
             dicFinalIngredients[ingrediente] = receitas
 
-def criaNos(grafoUSA, dicFinalIngredients, teste):
+def criaNos(grafoAL, dicFinalIngredients):
     indice = 0
     for i in dicFinalIngredients:
         if(len(dicFinalIngredients[i]) > 11):
-            teste.write(i + "\n")
-            grafoUSA.add_node(indice, ingredient=i, qtdadeReceitas=len(dicFinalIngredients[i]))
+            grafoAL.add_node(indice, ingredient=i, qtdadeReceitas=len(dicFinalIngredients[i]))
             indice = indice +1
 
     print("NUMERO DE NÓS: " + str(indice))
-    return len(grafoUSA)
+    return len(grafoAL)
+
 
 # Calcula a quantidade, não é qualitativo!
 def calculaReceitasComuns(ingre1, ingre2, dicFinal):
@@ -103,27 +108,27 @@ def calculaReceitasComuns(ingre1, ingre2, dicFinal):
                 qtdade = qtdade + 1
     return qtdade
 
-def criaLinks(grafoUSA, tam ,dicFinal):
+
+def criaLinks(grafoAL, tam ,dicFinal):
     count = 0
     for m in range(0, tam):
         for j in range(0, tam):
-            if(grafoUSA.nodes[m]['ingredient'] != grafoUSA.nodes[j]['ingredient'] and grafoUSA.has_edge(m,j) == False):
-                pA = int(grafoUSA.nodes[m]['qtdadeReceitas'])/7794
-                pB = int(grafoUSA.nodes[j]['qtdadeReceitas'])/7794
-                pAB = (calculaReceitasComuns(grafoUSA.nodes[m]['ingredient'], grafoUSA.nodes[j]['ingredient'], dicFinal))/7794
+            if(grafoAL.nodes[m]['ingredient'] != grafoAL.nodes[j]['ingredient'] and grafoAL.has_edge(m,j) == False):
+                pA = int(grafoAL.nodes[m]['qtdadeReceitas'])/7794
+                pB = int(grafoAL.nodes[j]['qtdadeReceitas'])/7794
+                pAB = (calculaReceitasComuns(grafoAL.nodes[m]['ingredient'], grafoAL.nodes[j]['ingredient'], dicFinal))/7794
                 if pB != 0 and pA != 0 and pAB != 0:
                     PMI = math.log(pAB/(pA*pB))
-                    if PMI >= 0.0 and PMI <= 2.0:
-                        grafoUSA.add_edge(m, j, weight=PMI)
-                        count = count + 1
-                        print(str(PMI))
+                    grafoAL.add_edge(m, j, weight=PMI)
+                    count = count + 1
+                    print(str(PMI))
 
     print("NUMERO DE ARESTAS: " + str(count))
-    #return pmiList
+
 
 def salvaGrafo(grafoUSA):
-    nx.drawing.nx_pydot.write_dot(grafoUSA, "grafoALEMANHA-BAIXO.dot")
-    #nx.write_gml(grafoUSA, "grafoUSA.gml")
+    nx.drawing.nx_pydot.write_dot(grafoUSA, "grafoALEMANHA-TOTAL.dot")
+
 
 def criaHistograma(pmiList):
     data = pmiList
@@ -138,8 +143,8 @@ def criaHistograma(pmiList):
     plt.title('PMI distribution')
     plt.xlabel('variable X (20 evenly spaced bins)')
     plt.ylabel('count')
-
     plt.show()
+
 
 def calculaCentralidade(grafoUSA):
     dicCentralidade = nx.algorithms.centrality.degree_centrality(grafoUSA)
@@ -148,20 +153,22 @@ def calculaCentralidade(grafoUSA):
 
     return dicCentralidade
 
+
 def defineTops(dicionario):
     top50 = open("top100-ALEMANHA-alto.txt", "a")
     top = 0
     for item in sorted(dicionario, key=dicionario.get, reverse=True):
         if(top < 150):
             top = top + 1
-            print(grafoUSA.nodes[item]['ingredient'])
-            top50.write(str(grafoUSA.nodes[item]['ingredient']) + ": " + str(dicionario[item]) + "\n")
+            print(grafoAL.nodes[item]['ingredient'])
+            top50.write(str(grafoAL.nodes[item]['ingredient']) + ": " + str(dicionario[item]) + "\n")
+
 
 # "main" a partir daqui
 client = MongoClient()
 db = client['AllrecipesDB']
-dataframeAL = pd.DataFrame(list(db.recipesFormated.find({"id": "3"}))) #pega somente os dados dos USA
-grafoUSA = nx.Graph()
+dataframeAL = pd.DataFrame(list(db.recipesFormated.find({"id": "3"}))) #pega somente os dados da Alemanha
+grafoAL = nx.Graph()
 stopWords = set(stopwords.words('german'))
 
 stopWords.update(["'450", "brauner", "weiche", "entfernt", "scheiben", "geschnitten", "'200", "prise", "griechischer",
@@ -186,6 +193,7 @@ stopWords.update(["'450", "brauner", "weiche", "entfernt", "scheiben", "geschnit
                   "bedarf", "xc3x96l","verquirlt", "'xc3x96l","packung", "xc3x84pfel"])
 
 maisUma = []
+
 for i in range(99,100):
     maisUma.append("'"+str(i))
     maisUma.append("'"+str(i)+"g")
@@ -194,16 +202,15 @@ stopWords.update(maisUma)
 ingredientsDictionary = []
 dicFinal = dict(ingredientsDictionary)
 
-#12167
-for i in range(0,6985):
-    if(calculaScore(dataframeAL, i) >= 35.0):
+
+for i in range(0, 6985):
+    if calculaScore(dataframeAL, i) >= 0.0:
         ingredients = dataframeAL.loc[i, "ingredients"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeAL.loc[i, "_id"])
 
-teste = open("testeAlemanha.txt", "a")
 
-graphSize = criaNos(grafoUSA, dict(dicFinal), teste)
-criaLinks(grafoUSA, graphSize, dicFinal)
-defineTops(calculaCentralidade(grafoUSA))
-salvaGrafo(grafoUSA)
+graphSize = criaNos(grafoAL, dict(dicFinal))
+criaLinks(grafoAL, graphSize, dicFinal)
+defineTops(calculaCentralidade(grafoAL))
+salvaGrafo(grafoAL)
 

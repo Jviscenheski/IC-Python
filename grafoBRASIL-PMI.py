@@ -11,6 +11,7 @@ sys.path.append('..')
 sys.path.append('/usr/lib/graphviz/python/')
 sys.path.append('/usr/lib64/graphviz/python/')
 
+
 class ingredienteCategoria:
     def __init__(self, ingrediente, category):
         self.nome = ingrediente
@@ -28,6 +29,7 @@ class ingredienteCategoria:
     def getCategoria(self):
         return self.dicCategoria
 
+
 def calculaScore(dataframeBR, i):
 
     score1 = math.log(float(dataframeBR.loc[i, "numberOfEvaluations"]) + 1.0, 10)
@@ -44,6 +46,7 @@ def calculaScore(dataframeBR, i):
 
     return score
 
+
 def filtraIngredientes(ingredients,stopWords):
     wordsFiltered = []
     for sent in sent_tokenize(str(ingredients)):
@@ -56,12 +59,14 @@ def filtraIngredientes(ingredients,stopWords):
                 wordsFiltered.append(filtered_sentence[i])
     return wordsFiltered
 
+
 def criaListaCategorias(ingrediente, category, listaCategoria):
     dicionario = dict(listaCategoria)
     novoIngrediente = ingredienteCategoria(ingrediente, category)
     dicionario = novoIngrediente.getCategoria()
     dicionario[category] = dicionario[category] + 1
     novoIngrediente.setCategoria(dicionario)
+
 
 def criaListaIngredientes(listIngredients, dicFinalIngredients, id, category):
     for i in range(len(listIngredients)):
@@ -84,6 +89,7 @@ def criaListaIngredientes(listIngredients, dicFinalIngredients, id, category):
             receitas.append(id)
             dicFinalIngredients[ingrediente] = receitas
 
+
 def criaNos(grafoBR, dicFinalIngredients):
     indice = 0
     for i in dicFinalIngredients:
@@ -94,6 +100,7 @@ def criaNos(grafoBR, dicFinalIngredients):
     print("NUMERO DE NÓS: " + str(indice))
     return len(grafoBR)
 
+
 def calculaReceitasComuns(ingre1, ingre2, dicFinal):
     qtdade = 0
     list1Ingre1 = dicFinal[ingre1]
@@ -103,6 +110,7 @@ def calculaReceitasComuns(ingre1, ingre2, dicFinal):
             if m == n:
                 qtdade = qtdade + 1
     return qtdade
+
 
 def criaLinks(grafoBR, tam ,dicFinal):
     count = 0
@@ -122,9 +130,11 @@ def criaLinks(grafoBR, tam ,dicFinal):
     print("NUMERO DE ARESTAS: " + str(count))
     #return pmiList
 
+
 def salvaGrafo(grafoBR):
     nx.drawing.nx_pydot.write_dot(grafoBR, "grafoBRBAIXO.dot")
     #nx.write_gml(grafoBR, "grafoBRTESTEPEQUENO.gml")
+
 
 def criaHistograma(pmiList):
     data = pmiList
@@ -233,7 +243,7 @@ ingredientsDictionary = []
 dicFinal = dict(ingredientsDictionary)
 
 for i in range(0,7794):
-    if(calculaScore(dataframeBR, i) >= 35):
+    if(calculaScore(dataframeBR, i) >= 0):
         ingredients = dataframeBR.loc[i, "ingredients"]
         category =dataframeBR.loc[i, "category:"]
         criaListaIngredientes(filtraIngredientes(ingredients, stopWords), dicFinal, dataframeBR.loc[i, "_id"], category)
