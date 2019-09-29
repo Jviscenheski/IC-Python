@@ -150,12 +150,12 @@ def defineTops(dicionario, fileName):
 client = MongoClient()
 db = client['AllrecipesDB']
 
-dataframeBR = pd.DataFrame(list(db.recipesFormated.find({"id": "1"})))          # pega dados do Brasil
-dataframeFR = pd.DataFrame(list(db.recipesFormated.find({"id": "2"})))         # pega dados da França
-dataframeAL = pd.DataFrame(list(db.recipesFormated.find({"id": "3"})))         # pega dados da Alemanha
-dataframeIT = pd.DataFrame(list(db.recipesFormated.find({"id": "4"})))         # pega dados da Italia
-dataframeIN = pd.DataFrame(list(db.recipesFormated.find({"id": "5"})))         # pega dados da India
-dataframeEUA = pd.DataFrame(list(db.recipesFormated.find({"id": "6"})))         # pega dados dos USA
+dataframeBR = pd.DataFrame(list(db.recipesDatabase.find({"id": "1"})))          # pega dados do Brasil
+dataframeFR = pd.DataFrame(list(db.recipesDatabase.find({"id": "2"})))         # pega dados da França
+dataframeAL = pd.DataFrame(list(db.recipesDatabase.find({"id": "3"})))         # pega dados da Alemanha
+dataframeIT = pd.DataFrame(list(db.recipesDatabase.find({"id": "4"})))         # pega dados da Italia
+dataframeIN = pd.DataFrame(list(db.recipesDatabase.find({"id": "5"})))         # pega dados da India
+dataframeEUA = pd.DataFrame(list(db.recipesDatabase.find({"id": "6"})))         # pega dados dos USA
 
 
 stopWordsBR = set(stopwords.words('portuguese'))
