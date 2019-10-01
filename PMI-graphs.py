@@ -43,7 +43,7 @@ def filtraIngredientes(ingredients, stopWords):
     return wordsFiltered
 
 
-def insereIDreceitasAndScore(dataframe, grafo, qtdadeReceitas, stopwords):
+def insereIDreceitasAndScore(dataframe, grafo, qtdadeReceitas, stopWords):
 
     # primeiro analisa as receitas brasileiras
     for i in range(0, qtdadeReceitas):                                                                     # controla o dataframe                                                                # controla o grafo
@@ -214,7 +214,50 @@ stopWordsBR.update(["colheres","pitada", "suco","molho", "picado","2'", "2 '" "p
                   "salada", "salgado", "salpicar", "seco", "secos", "seca", "secas", "seleta", "semi-desnatado", "semidesnatado",
                   "sentido", "separadas", "separada", "separados", "servir", "sobras", "sobremesa", "solúvel", "sortidas",
                   "suave", "suficiente", "tablete", "tabletes", "talo", "talos", "tamanho", "tempero", "temperada",
-                  "temperado", "temperar", "temperos", "tipo", "tiras", "vidro", "fresca", "cozido", "picado"])
+                  "temperado", "temperar", "temperos", "tipo", "tiras", "vidro", "fresca", "cozido", "picado",
+                    "finamente", "partido", "dedo", "moça", "cheias", "refinado", "cobertura", "usar", "vontade",
+                    "substituir", "papel", "americana", "corda", "frito", "caso", "fica", "rolo", "escamas", "reserve",
+                    "menos", "e/ou", "diagonais", "defumados", "tostadas", "preto", "porto", "torrados", "crespa",
+                    "significa", "origem", "nome", "produto", "porque", "aromatizado", "desse", "real", "mini",
+                    "alguns", "agosto", "aguardente", "dourada", "dourado", "colocar", "cima", "abaixo", "prefiro",
+                    "fininha", "dormidos", "embebidos", "escolha", "escovados", "barbas", "grossamente", "passada",
+                    "outras", "iguais", "namorado", "próprio", "dissolvidos", "quadradinho", "conservada",
+                    "canecas", "caneca", "terra", "longitudinais", "recobrir", "discreta", "misturar", "hidratar",
+                    "toalha", "dose", "gossas", "preparar", "misturadas", "precisar", "parboilizado", "pastoso",
+                    "casquinhas", "cheiro", "macia", "engrossar", "diluído", "pouquinho", "aferventados", "peneirados",
+                    "vidros", "pistola", "lâminas", "derretidas", "isolada", "quadradinhos", "folhada", "coloridos",
+                    "espinho", "salada", "colherchá", "baiano", "barrigada", "moido", "frutos", "semtes", "usado",
+                    "esfarele", "totalmente", "fiquem", "visíveis", "potes", "pessoas", "entrecosto",
+                    "guarnecer", "primeira", "cerefólio", "durante", "noite", "joelhos", "maria®", "doces",
+                    "cura", "derretido", "culinário", "enrolar", "colhere", "caramelizadas", "filetadas",
+                    "quebrado", "moídos", "pequana", "próprias", "assar", "natural®", "royal", "possa",
+                    "fogo", "grossa", "esmagados", "marca", "deste", "ingrediente", "deve - se", "derreta",
+                    "calor", "amarelos", "sobre", "raíz", "bolinha", "cavala", "iraniano", "cubinho",
+                    "músculo", "italianos", "bombons", "adoçado", "variar", "brandy", "crua", "tigo", "copinhos",
+                    "tirinha", "anis", "estrelado", "mação", "separado", "fradinho", "conhecido", "lugares",
+                    "catado", "limao", "folhados", "proteína", "Isolada", "condimento", "estrogonofe", "igual",
+                    "sobras", "refogados", "raspada", "escaldado", "poró", "miudinha", "picles", "desossada",
+                    "xantana", "pontas", "roxos", "durinha", "talinhos", "kama", "missô", "dúzia", "dúzias",
+                    "debtes", "laminado", "toscanas", "pronto / sal", "grosso / sal", "capa", "temperados",
+                    "patas", "king", "crab", "gigante", "taiti", "itália", "nanicas", "rosas", "queimado",
+                    "moça®", "femento", "teor", "espiral", "bico", "carioquinha", "mulatinho", "espigas", "fraldinha",
+                    "texturizada", "holandesa", "ementhal", "bengala", "grano", "leia", "vertical", "macios",
+                    "minivagens", "pedacinho", "selvagem", "redonda", "guardanapos", "pano", "amarrar", "bengalas",
+                    "amanhecidas", "pedacinhos", "branco®", "tira", "frangélico", "mista", "salgada", "azul",
+                    "miúda", "toscana", "impalpável", "acrescente", "cores", "bandeja", "paris", "moela", "quadrados",
+                    "pequi", "vegetais", "pecorino", "coxas / sobrecoxas", "passarinho", "fininhas", "enlatado",
+                    "geléia", "fundo", "forminha", "forminhas", "passar", "docinhos", "baguete", "media", "moscatel",
+                    "coulis", "ambos", "glúten", "colhers", "quibe", "garganta", "manjeicão", "Tirolez®", "apenas",
+                    "munguzá", "cozinhá - la", "maior", "alumínio", "largura", "empacotar", "pesadas", "coma",
+                    "adoçada", "dois", "fava", "porção", "descongeladas", "vanille", "buquê", "envelhecida",
+                    "compre", "prepare", "umas", "refogado", "Emmental", "fibra", "costelinhas", "churrasco",
+                    "Knorr®", "pescadas", "cracker", "cozinha", "receitas", "removidos", "redondo", "superfície",
+                    "choco", "Krispies®", "esmagado", "pitadinha", "filtrada", "materno", "fórmula", "frade",
+                    "rubi", "recheados", "crepe", "tradicional", "mesclado", "normal", "depende", "refratário",
+                    "ninho®", "codensado", "nestlé®", "cupuaçu", "unidade", "colorido", "pudim", "punhados",
+                    "plástico", "saco", "dianteiro", "especial", "dura", "passatempo®", "maltesers", "confeitos",
+                    "coisa", "cheio", "morno / frio", "nanica", "sabores", "diferentes", "dietética", "kefir",
+                    "horizontal", "confeitos"])
 
 stopWordsFR = set(stopwords.words('french'))
 stopWordsFR.update(["gro", "dxc3xa9s", "quelques", "grose", "groses", "poivre", "concasxc3xa9es",
@@ -426,9 +469,12 @@ stopWordsEUA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
 
 unitValidation = []
 
-for i in range(99, 1000):
+for i in range(1, 2000):
+    unitValidation.append(str(i))
     unitValidation.append("'"+str(i))
+    unitValidation.append(str(i)+"ml")
     unitValidation.append("'"+str(i)+"g")
+
 
 stopWordsBR.update(unitValidation)
 stopWordsFR.update(unitValidation)
@@ -438,9 +484,9 @@ stopWordsIN.update(unitValidation)
 stopWordsEUA.update(unitValidation)
 
 
-countries = {"Brasil": [7794, stopWordsBR, dataframeBR, [1, 0, 0, 0, 0, 0]], "França": [5568, stopWordsFR, dataframeFR,
-            [0, 1, 0, 0, 0, 0]], "Alemanha": [6984, stopWordsAL, dataframeAL, [0, 0, 1, 0, 0, 0]],
-             "Itália": [4005, stopWordsIT, dataframeIT, [0, 0, 0, 1, 0, 0]],
+#countries = {"Brasil": [7794, stopWordsBR, dataframeBR, [1, 0, 0, 0, 0, 0]], "França": [5568, stopWordsFR, dataframeFR,
+ #           [0, 1, 0, 0, 0, 0]], "Alemanha": [6984, stopWordsAL, dataframeAL, [0, 0, 1, 0, 0, 0]],
+countries = {"Itália": [4005, stopWordsIT, dataframeIT, [0, 0, 0, 1, 0, 0]],
              "Índia": [966, stopWordsIN, dataframeIN, [0, 0, 0, 0, 1, 0]],
              "EUA": [12167, stopWordsEUA, dataframeEUA, [0, 0, 0, 0, 0, 1]]}
 
@@ -451,11 +497,15 @@ for country in countries:
     for i in range(0, countries[country][0]):
         if calculaScore(countries[country][2], i) >= 0.0:
             ingredients = countries[country][2].loc[i, "ingredients"]
-            criaListaIngredientes(filtraIngredientes(ingredients, countries[country][1]), dicFinal,
+            newIngredientsList = []
+            for item in ingredients:
+                newitem = item.replace("'", "").lower()
+                newIngredientsList.append(newitem)
+            criaListaIngredientes(filtraIngredientes(newIngredientsList, countries[country][1]), dicFinal,
                                   countries[country][2].loc[i, "_id"])
 
     graphSize = criaNos(grafo, dict(dicFinal), countries[country][3])
     criaLinks(grafo, graphSize, dicFinal)
-    defineTops(calculaCentralidade(grafo), country + ".txt")
+    defineTops(calculaCentralidade(grafo), country + "TOTAL.txt")
     salvaGrafo(grafo, country + ".dot")
     grafo.clear()

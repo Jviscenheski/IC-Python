@@ -148,7 +148,8 @@ stopWordsBR.update(["colheres","pitada", "suco","molho", "picado","2'", "2 '" "p
                     "ninho®", "codensado", "nestlé®", "cupuaçu", "unidade", "colorido", "pudim", "punhados",
                     "plástico", "saco", "dianteiro", "especial", "dura", "passatempo®", "maltesers", "confeitos",
                     "coisa", "cheio", "morno / frio", "nanica", "sabores", "diferentes", "dietética", "kefir",
-                    "horizontal", "confeitos"])
+                    "horizontal", "confeitos", "'ramos", "'pimenta", "'farinha", "'açúcar", "'molho", "'manteiga",
+                    "'folhas", "'raspas", "'azeite", "'óleo", "'pimenta-do-reino", "substituida"])
 
 stopWordsFR = set(stopwords.words('french'))
 stopWordsFR.update(["gro", "dxc3xa9s", "quelques", "grose", "groses", "poivre", "concasxc3xa9es",
@@ -319,7 +320,9 @@ stopWordsIN.update(["'xc2xbd","tbsp","'75g","spoon","pinch", "juice", "gravy", "
                   "coarsely", "quartered", "thinly", "finely", "rinsed", "crumbled", "removed", "baby", "bell", "pitted",
                   "Italian", "broth", "extra-virgin", "cubed", "packages", "halves", "juiced", "1-inch", "uncooked",
                   "mixed", "toasted", "'Dressing", "spray", "seeded", "'cooking", "inch", "plain", "1/2-inch", "container",
-                  "cored", "whole", "chunk", "boiled", "baking",  "chilli", "chillies", "frying", "piece", "clove"])
+                  "cored", "whole", "chunk", "boiled", "baking",  "chilli", "chillies", "frying", "piece", "clove",
+                    "mashed", "essence", "puree", "garnishing", "strands", "long", "sweetness", "thindooraLittle",
+                    "shaped", "mashed", "instant", "sprouts", "hung", "chips", "stalk" ])
 
 stopWordsEUA = set(stopwords.words('english'))
 stopWordsEUA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cups", "soup", "can", "box", "box", "tea",
@@ -356,7 +359,44 @@ stopWordsEUA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
                   "coarsely", "quartered", "thinly", "finely", "rinsed", "crumbled", "removed", "baby", "bell", "pitted",
                   "Italian", "broth", "extra-virgin", "cubed", "packages", "halves", "juiced", "1-inch", "uncooked",
                   "mixed", "toasted", "'Dressing", "spray", "seeded", "'cooking", "inch", "plain", "1/2-inch", "container",
-                  "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown"])
+                  "cored", "whole", "chunk", "boiled", "baking", "chilli", "chillies", "frying", "clove", "brown",
+                  "worcestershire", "stalk", "sauce", "salad", "chunks", "sour", "torn", "balsamic", "sprigs", "pint",
+                     "kernels", "zest", "worcestershire", "swiss", "sage", "stems", "dill", "ranch", "taco", "meal",
+                     "whipping", "ears", "shells", "nuts", "stalk", "bulk", "cereal", "quick"])
+
+with open("SWUSA.txt") as file:
+    newList = []
+    for line in file:
+        newItem = line.split(":")[0]
+        newList.append(newItem)
+
+stopWordsEUA.update(newList)
+stopWordsIN.update(newList)
+
+with open("SWF.txt") as file:
+    newListF = []
+    for line in file:
+        newItemF = line.split(":")[0]
+        newListF.append(newItemF)
+
+stopWordsFR.update(newListF)
+
+with open("SWA.txt") as file:
+    newListA = []
+    for line in file:
+        newItemA = line.split(":")[0]
+        newListA.append(newItemA)
+
+stopWordsAL.update(newListA)
+
+with open("SWI.txt") as file:
+    newListI = []
+    for line in file:
+        newItemI = line.split(":")[0]
+        newListI.append(newItemI)
+
+stopWordsIT.update(newListI)
+
 
 unitValidation = []
 
@@ -392,11 +432,14 @@ for country in countries:
         print(ingredientsList)
         newIngredientsList = []
         for item in ingredientsList:
-            newitem = item.replace("'", "").lower()
+            newitem = item.replace("'", "").lower().replace("xc3xa9", "é").replace("xc3xa8", "è").replace("xc5x93", "oe")\
+                .replace("xc3x84", "Ä").replace("xc3xa4", "ä").replace("xc3x96", "Ö").replace("xc3xb6", "ö").replace("xc3xbc", "ü")\
+                .replace("xc3x9f", "B").replace("xc2xbd", "Ü")
             newIngredientsList.append(newitem)
         print(newIngredientsList)
         lista.write(str(newIngredientsList) + "\n")
         newData['ingredients'] = newIngredientsList
         newData['score'] = calculaScore(countries[country][2], i)
+        result = db.recipesIngredients.insert_one(newData)
         newIngredientsList.clear()
         print(newData)
