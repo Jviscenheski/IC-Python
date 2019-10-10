@@ -131,12 +131,12 @@ for country in countries:
     ingredientsDictionary = []
     dicFinal = dict(ingredientsDictionary)
     for i in range(0, countries[country][0]):
-        if countries[country][1].loc[i, 'score'] >= 0.0:
+        if countries[country][1].loc[i, 'score'] >= 35.0:
             ingredients = countries[country][1].loc[i, "ingredients"]
             criaListaIngredientes(ingredients, dicFinal, countries[country][1].loc[i, "_id"])
 
     graphSize = criaNos(grafo, dict(dicFinal), countries[country][2])
     criaLinks(grafo, graphSize, dicFinal)
-    defineTops(calculaCentralidade(grafo), country + "-TOTAL.txt")
-    salvaGrafo(grafo, country + ".dot")
+    defineTops(calculaCentralidade(grafo), country + "-ALTO.txt")
+    salvaGrafo(grafo, country + "-ALTO.dot")
     grafo.clear()

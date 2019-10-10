@@ -364,6 +364,14 @@ stopWordsEUA.update(["spoon","pinch", "juice", "gravy", "chopped", "2", "2" "cup
                      "kernels", "zest", "worcestershire", "swiss", "sage", "stems", "dill", "ranch", "taco", "meal",
                      "whipping", "ears", "shells", "nuts", "stalk", "bulk", "cereal", "quick"])
 
+with open("SWBR.txt") as file:
+    newListB = []
+    for line in file:
+        newItemB = line.split(":")[0]
+        newListB.append(newItemB)
+
+stopWordsBR.update(newListB)
+
 with open("SWUSA.txt") as file:
     newList = []
     for line in file:
@@ -389,7 +397,7 @@ with open("SWA.txt") as file:
 
 stopWordsAL.update(newListA)
 
-with open("SWI.txt") as file:
+with open("SWIT.txt") as file:
     newListI = []
     for line in file:
         newItemI = line.split(":")[0]
@@ -400,11 +408,12 @@ stopWordsIT.update(newListI)
 
 unitValidation = []
 
-for i in range(99, 2000):
+for i in range(1, 2000):
     unitValidation.append(str(i))
     unitValidation.append("'"+str(i))
     unitValidation.append(str(i)+"ml")
     unitValidation.append("'"+str(i)+"g")
+    unitValidation.append(str(i) + "g")
 
 stopWordsBR.update(unitValidation)
 stopWordsFR.update(unitValidation)
