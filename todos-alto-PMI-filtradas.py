@@ -6,6 +6,8 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 import math
 from operator import itemgetter
 
+import operator
+
 
 def filtraIngredientes(ingredients,stopWords):
     wordsFiltered = []
@@ -15,7 +17,7 @@ def filtraIngredientes(ingredients,stopWords):
 
         for i in range(len(filtered_sentence)):
             if len(filtered_sentence[i]) > 3 or filtered_sentence[i] == "rum" or filtered_sentence[i] == "sal":
-                filtered_sentence[i].replace(filtered_sentence[i], "").replace("\'", "")
+                filtered_sentence[i].replace(filtered_sentence[i], "").replace("'\\", "")
                 wordsFiltered.append(filtered_sentence[i])
     return wordsFiltered
 
@@ -30,7 +32,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             lista_todos_total.write(str(line.split(":")[1]))
             grafo.add_node(br, ingredienteLL=line.split(":")[0], ingredienteEN=line.split(":")[1].replace("\n", ""),
                            qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=1, franca=0, alemanha=0, italia=0, india=0, eua=0,
-                           receitas=[], score=0)
+                           receitas=[], score=0, group=0)
             print("criou no BR: " + line.split(":")[0] + " ou " + line.split(":")[1])
             listaTotal.append(line.split(":")[1].replace("\n", ""))
             br = br + 1
@@ -51,7 +53,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             if(flag):
                 grafo.add_node(fr, ingredienteLL=lineFR.split(":")[0], ingredienteEN=lineFR.split(":")[1].replace("\n", ""),
                                qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=1, alemanha=0, italia=0, india=0, eua=0,
-                               receitas=[], score=0)
+                               receitas=[], score=0, group=0)
                 fr = fr + 1
                 lista_todos_total.write(str(lineFR.split(":")[1]))
                 listaTotal.append(lineFR.split(":")[1].replace("\n", ""))
@@ -73,7 +75,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             if(outraFlag):
                 grafo.add_node(al, ingredienteLL=lineAL.split(":")[0], ingredienteEN=lineAL.split(":")[1].replace("\n", ""),
                                qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=1, italia=0, india=0, eua=0,
-                               receitas=[], score=0)
+                               receitas=[], score=0, group=0)
                 al = al + 1
                 lista_todos_total.write(str(lineAL.split(":")[1]))
                 listaTotal.append(lineAL.split(":")[1].replace("\n", ""))
@@ -95,7 +97,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             if(outraFlag1):
                 grafo.add_node(it, ingredienteLL=lineIT.split(":")[0], ingredienteEN=lineIT.split(":")[1].replace("\n",""),
                                qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=1, india=0, eua=0,
-                               receitas=[], score=0)
+                               receitas=[], score=0, group=0)
                 it = it + 1
                 lista_todos_total.write(str(lineIT.split(":")[1]))
                 listaTotal.append(lineIT.split(":")[1].replace("\n", ""))
@@ -117,7 +119,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
             if(outraFlag2):
                 grafo.add_node(ind, ingredienteLL=lineIN.split(":")[0], ingredienteEN=lineIN.split(":")[0].replace("\n", ""),
                                qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=1, eua=0,
-                               receitas=[], score=0)
+                               receitas=[], score=0, group=0)
                 ind = ind + 1
                 lista_todos_total.write(str(lineIN.split(":")[0]) + "\n")
                 listaTotal.append(lineIN.split(":")[0].replace("\n", ""))
@@ -140,7 +142,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
                 grafo.add_node(us, ingredienteLL=lineUSA.split(":")[0].replace("\n", ""),
                                ingredienteEN=lineUSA.split(":")[0].replace("\n", ""),
                                qtdadeReceitas=[0, 0, 0, 0, 0, 0], brasil=0, franca=0, alemanha=0, italia=0, india=0, eua=1,
-                               receitas=[], score=0)
+                               receitas=[], score=0, group=0)
                 us = us + 1
                 lista_todos_total.write(str(lineUSA.split(":")[0]) + "\n")
                 listaTotal.append(lineUSA.split(":")[0].replace("\n", ""))
@@ -151,7 +153,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
 
     # primeiro analisa as receitas brasileiras 7794
     for i in range(0,7794):                                                                     # controla o dataframe                                                                # controla o grafo
-        listIngredient = filtraIngredientes(dataframeBR.loc[i, "ingredients"], stopWordsBR)     # pega os ingredientes de uma receita
+        listIngredient = dataframeBR.loc[i, "ingredients"]     # pega os ingredientes de uma receita
         for item in listIngredient:                                                             # controla a lista de ingredientes
             for j in range(0, len(grafo)):
                 if(grafo.nodes[j]['ingredienteLL'] == item):                                    # se o ingrediente procurado estiver dentro da receita
@@ -168,7 +170,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
     # analisando as receitas francesas 5568
     for i in range(0, 5568):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
-            listIngredient = filtraIngredientes(dataframeFR.loc[i, "ingredients"],                                                stopWordsFR)                                   # pega os ingredientes de uma receita
+            listIngredient = dataframeFR.loc[i, "ingredients"]                                   # pega os ingredientes de uma receita
             for item in listIngredient:                                                         # controla a lista de ingredientes
                 if (grafo.nodes[j]['ingredienteLL'] == item):                                   # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
@@ -182,10 +184,9 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente FR")
 
     # analisando as receitas alemãs 6985
-    for i in range(0, 6985):                                                                    # controla o dataframe
+    for i in range(0, 6984):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
-            listIngredient = filtraIngredientes(dataframeAL.loc[i, "ingredients"],
-                                                stopWordsAL)                                    # pega os ingredientes de uma receita
+            listIngredient = dataframeAL.loc[i, "ingredients"]                              # pega os ingredientes de uma receita
             for item in listIngredient:                                                         # controla a lista de ingredientes
                 if (grafo.nodes[j]['ingredienteLL'] == item):                                   # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
@@ -199,10 +200,9 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente AL")
 
     # analisando as receitas italianas 4006
-    for i in range(0, 4006):                                                            # controla o dataframe
+    for i in range(0, 4005):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
-            listIngredient = filtraIngredientes(dataframeIT.loc[i, "ingredients"],
-                                                stopWordsIT)                            # pega os ingredientes de uma receita
+            listIngredient = dataframeIT.loc[i, "ingredients"]                       # pega os ingredientes de uma receita
             for item in listIngredient:                                                 # controla a lista de ingredientes
                 if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
@@ -216,10 +216,9 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente IT")
 
     # analisando as receitas indianas 967
-    for i in range(0, 967):                                                            # controla o dataframe
+    for i in range(0, 966):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
-            listIngredient = filtraIngredientes(dataframeIN.loc[i, "ingredients"],
-                                                stopWordsIN)                           # pega os ingredientes de uma receita
+            listIngredient = dataframeIN.loc[i, "ingredients"]                          # pega os ingredientes de uma receita
             for item in listIngredient:                                                 # controla a lista de ingredientes
                 if (grafo.nodes[j]['ingredienteLL'] == item):                           # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
@@ -235,7 +234,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
     # analisa as receitas estadunidenses 12167
     for i in range(0, 12167):                                                                             # controla o dataframe
         for j in range(0, len(grafo)):                                                                    # controla o grafo
-            listIngredient = filtraIngredientes(dataframeUSA.loc[i, "ingredients"], stopWordsUSA)         # pega os ingredientes de uma receita
+            listIngredient = dataframeUSA.loc[i, "ingredients"]        # pega os ingredientes de uma receita
             for item in listIngredient:                                                                   # controla a lista de ingredientes
                 if (grafo.nodes[j]['ingredienteEN'] == item):                                             # se o ingrediente procurado estiver dentro da receita
                     recipeList = grafo.nodes[j]['receitas']
@@ -282,13 +281,166 @@ def criaLinks(grafo, tam):
 def removeEdgesByCentrality(grafo):
 
     edgeDics = nx.algorithms.centrality.edge_betweenness_centrality(grafo)
+    count = 0
     print(edgeDics)
-    for edge in sorted(edgeDics.items(), key=itemgetter(1), reverse=True):
+    sorted_x = sorted(edgeDics.items(), key=operator.itemgetter(1), reverse=True)
+
+    for edge in sorted_x:
         print(str(edge))
+        if count < 8500:
+            print(str(edge))
+            grafo.remove_edge(edge[0][0], edge[0][1])
+            count += 1
 
 
-def salvaGrafo(grafo):
-    nx.drawing.nx_pydot.write_dot(grafo, "todos-ALTO.dot")
+def defineGroups(grafo, tam):
+
+    for i in range(0, tam):
+        if grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+        grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 0
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+        grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 1
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+        grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 2
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+        grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 3
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+        grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 4
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+        grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 5
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 6
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 7
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 8
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 9
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 10
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 11
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 12
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 13
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 14
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 15
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 16
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 17
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 18
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 19
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 20
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 21
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 22
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 23
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 24
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 25
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 26
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 27
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 28
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 29
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 30
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 31
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 33
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 34
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 35
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 36
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 37
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 38
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 40
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 41
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 0:
+            grafo.nodes[i]['group'] = 42
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 43
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 44
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 45
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 1 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 1 and grafo.nodes[i]['india'] == 0 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 46
+        elif grafo.nodes[i]['brasil'] == 1 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 0 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 47
+        elif grafo.nodes[i]['brasil'] == 0 and grafo.nodes[i]['franca'] == 0 and grafo.nodes[i]['alemanha'] == 1 and \
+            grafo.nodes[i]['italia'] == 0 and grafo.nodes[i]['india'] == 1 and grafo.nodes[i]['eua'] == 1:
+            grafo.nodes[i]['group'] = 48
+
+
+def salvaGrafo(grafo, path):
+    nx.drawing.nx_pydot.write_dot(grafo, path)
 
 
 
@@ -585,7 +737,7 @@ with open("SWUSA.txt") as file:
         newItem = line.split(":")[0]
         newList.append(newItem)
 
-stopWordsEUA.update(newList)
+stopWordsUSA.update(newList)
 stopWordsIN.update(newList)
 
 with open("SWF.txt") as file:
@@ -630,11 +782,13 @@ stopWordsIN.update(unitValidation)
 stopWordsUSA.update(unitValidation)
 
 lista_todos_total = open("lista-total-todos.txt", "a")
-criaNos("BR-pt-en-alto.txt", "FR-fr-en-alto.txt", "AL-al-en-alto.txt", "IT-it-en-alto.txt", "top100-INDIA-alto.txt", "top100-USA-alto.txt", grafo, lista_todos_total)
+criaNos("Brasil-ALTO.txt", "França-ALTO.txt", "Alemanha-ALTO.txt", "Itália-ALTO.txt", "Índia-ALTO.txt", "EUA-ALTO.txt", grafo, lista_todos_total)
 insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
 criaLinks(grafo, len(grafo))
-
-salvaGrafo(grafo)
+defineGroups(grafo, len(grafo))
+#salvaGrafo(grafo, "todos-alto-PMI-completo.dot")
+removeEdgesByCentrality(grafo)
+salvaGrafo(grafo, "todos-alto-PMI-removeEdges-8500.dot")
 
 
 

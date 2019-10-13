@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="558e7136-db48-4f6d-aca1-1531bb3402b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/todos-alto-PMI-filtradas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWF.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWI.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWUSA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipesIngredients.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipesIngredients.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todos-PMI-filtradas.py" beforeDir="false" afterPath="$PROJECT_DIR$/todos-PMI-filtradas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos-alto-PMI-filtradas.py" beforeDir="false" afterPath="$PROJECT_DIR$/todos-alto-PMI-filtradas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordCloud-bck.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud-bck.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,136 +174,61 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
-          <entry key="py" value="16873" />
+          <entry key="py" value="19468" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="16873" />
+          <entry key="Python" value="19468" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="69" />
+          <entry key="py" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="69" />
+          <entry key="Python" value="72" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/top6-India.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4165">
-              <caret line="250" column="54" selection-start-line="250" selection-end-line="250" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/recipesIngredients.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="366" selection-start-line="366" selection-end-line="422" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#2061#13719#0" />
-                <element signature="e#13786#20949#0" />
-                <element signature="e#21016#23279#0" />
-                <element signature="e#23347#28332#0" />
-                <element signature="e#28400#32878#0" />
-                <element signature="e#32948#37482#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/insertData.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="29" column="75" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PMI-graphs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8551">
-              <caret line="511" selection-start-line="511" selection-end-line="511" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todos-PMI-filtradas.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2176">
-              <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todos-alto-PMI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="302" selection-start-line="302" selection-end-line="302" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#228#734#0" />
-                <element signature="e#16123#16264#0" />
-                <element signature="e#16303#16794#0" />
-                <element signature="e#16845#17639#0" />
-                <element signature="e#17959#18482#0" />
-                <element signature="e#18512#18954#0" />
-                <element signature="e#18986#19062#0" />
-                <element signature="e#19095#19400#0" />
-                <element signature="e#19444#20113#0" />
-                <element signature="e#20162#21382#0" />
-                <element signature="e#22261#29006#0" />
-                <element signature="e#29073#36236#0" />
-                <element signature="e#36303#38566#0" />
-                <element signature="e#38634#43619#0" />
-                <element signature="e#43687#47961#0" />
-                <element signature="e#48031#52234#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/todos-alto-PMI-filtradas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="286" column="24" selection-start-line="286" selection-start-column="24" selection-end-line="286" selection-end-column="24" />
+            <state relative-caret-position="221">
+              <caret line="289" column="20" selection-start-line="289" selection-start-column="20" selection-end-line="289" selection-end-column="20" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#228#734#0" />
                 <element signature="e#847#7020#0" />
-                <element signature="e#7129#16012#0" />
+                <element signature="e#7162#15177#0" />
                 <element signature="e#16123#16264#0" />
+                <element signature="e#16845#17639#0" />
                 <element signature="e#22261#29006#0" />
                 <element signature="e#29073#36236#0" />
                 <element signature="e#36303#38566#0" />
                 <element signature="e#38634#43619#0" />
                 <element signature="e#43687#47961#0" />
                 <element signature="e#48031#52234#0" />
-                <marker date="1570674080946" expanded="true" signature="16705:16904" ph="..." />
-                <marker date="1570674080946" expanded="true" signature="16926:16931" ph="..." />
+                <marker date="1570987110434" expanded="true" signature="16781:29326" ph="..." />
+                <marker date="1570987110434" expanded="true" signature="29354:29359" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordClouds.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="138" column="12" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -370,8 +288,6 @@
         <option value="$PROJECT_DIR$/analyser.py" />
         <option value="$PROJECT_DIR$/graphs.py" />
         <option value="$PROJECT_DIR$/noClass.py" />
-        <option value="$PROJECT_DIR$/wordClouds.py" />
-        <option value="$PROJECT_DIR$/wordCloud-bck.py" />
         <option value="$PROJECT_DIR$/boxplot.py" />
         <option value="$PROJECT_DIR$/grafoBRASIL.py" />
         <option value="$PROJECT_DIR$/appendID.py" />
@@ -404,6 +320,8 @@
         <option value="$PROJECT_DIR$/PMI-graphs.py" />
         <option value="$PROJECT_DIR$/recipesIngredients.py" />
         <option value="$PROJECT_DIR$/todos-PMI-filtradas.py" />
+        <option value="$PROJECT_DIR$/wordClouds.py" />
+        <option value="$PROJECT_DIR$/wordCloud-bck.py" />
         <option value="$PROJECT_DIR$/todos-alto-PMI-filtradas.py" />
       </list>
     </option>
@@ -456,28 +374,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.todos-PMI-filtradas">
-    <configuration name="GirvenNewman-total" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AllRecipes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\juvis\Desktop\IC - Engenharia\Códigos - Python\recipesIngredients.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.todos-alto-PMI-filtradas">
     <configuration name="PMI-graphs" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AllRecipes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -491,27 +388,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PMI-graphs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="databaseRefresh" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AllRecipes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/databaseRefresh.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -562,20 +438,62 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="todos-alto-PMI-filtradas" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AllRecipes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/todos-alto-PMI-filtradas.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wordCloud-bck" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AllRecipes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wordCloud-bck.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.PMI-graphs" />
-      <item itemvalue="Python.databaseRefresh" />
-      <item itemvalue="Python.GirvenNewman-total" />
       <item itemvalue="Python.recipesIngredients" />
       <item itemvalue="Python.todos-PMI-filtradas" />
+      <item itemvalue="Python.todos-alto-PMI-filtradas" />
+      <item itemvalue="Python.wordCloud-bck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.todos-alto-PMI-filtradas" />
+        <item itemvalue="Python.wordCloud-bck" />
         <item itemvalue="Python.todos-PMI-filtradas" />
         <item itemvalue="Python.recipesIngredients" />
         <item itemvalue="Python.PMI-graphs" />
-        <item itemvalue="Python.GirvenNewman-total" />
-        <item itemvalue="Python.databaseRefresh" />
       </list>
     </recent_temporary>
   </component>
@@ -605,13 +523,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19568452" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19568452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.17704917" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627978" visible="true" weight="0.3442623" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4557377" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627978" visible="true" weight="0.31311476" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6655738" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49925596" weight="0.32786885" />
@@ -677,13 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wordCloud-bck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="175" column="3" selection-start-line="175" selection-start-column="3" selection-end-line="175" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -812,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wordClouds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grafoAlemanha-PMI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -898,7 +802,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/top6-India.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4165">
+        <state>
           <caret line="250" column="54" selection-start-line="250" selection-end-line="250" selection-end-column="54" />
         </state>
       </provider>
@@ -910,38 +814,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PMI-graphs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8551">
-          <caret line="511" selection-start-line="511" selection-end-line="511" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todos-PMI-filtradas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2176">
           <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recipesIngredients.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="366" selection-start-line="366" selection-end-line="422" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2061#13719#0" />
-            <element signature="e#13786#20949#0" />
-            <element signature="e#21016#23279#0" />
-            <element signature="e#23347#28332#0" />
-            <element signature="e#28400#32878#0" />
-            <element signature="e#32948#37482#0" />
           </folding>
         </state>
       </provider>
@@ -972,24 +850,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PMI-graphs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="511" selection-start-line="511" selection-end-line="511" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recipesIngredients.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="284" column="54" lean-forward="true" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#2061#13719#0" />
+            <element signature="e#13786#20949#0" />
+            <element signature="e#21016#23279#0" />
+            <element signature="e#23347#28332#0" />
+            <element signature="e#28400#32878#0" />
+            <element signature="e#32948#37482#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordCloud-bck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="149" column="80" selection-start-line="149" selection-start-column="80" selection-end-line="149" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordClouds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="138" column="12" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/todos-alto-PMI-filtradas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="286" column="24" selection-start-line="286" selection-start-column="24" selection-end-line="286" selection-end-column="24" />
+        <state relative-caret-position="221">
+          <caret line="289" column="20" selection-start-line="289" selection-start-column="20" selection-end-line="289" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#228#734#0" />
             <element signature="e#847#7020#0" />
-            <element signature="e#7129#16012#0" />
+            <element signature="e#7162#15177#0" />
             <element signature="e#16123#16264#0" />
+            <element signature="e#16845#17639#0" />
             <element signature="e#22261#29006#0" />
             <element signature="e#29073#36236#0" />
             <element signature="e#36303#38566#0" />
             <element signature="e#38634#43619#0" />
             <element signature="e#43687#47961#0" />
             <element signature="e#48031#52234#0" />
-            <marker date="1570674080946" expanded="true" signature="16705:16904" ph="..." />
-            <marker date="1570674080946" expanded="true" signature="16926:16931" ph="..." />
+            <marker date="1570987110434" expanded="true" signature="16781:29326" ph="..." />
+            <marker date="1570987110434" expanded="true" signature="29354:29359" ph="..." />
           </folding>
         </state>
       </provider>
