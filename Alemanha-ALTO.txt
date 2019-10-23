@@ -1,0 +1,209 @@
+salz:salt
+pfeffer:pepper
+zucker:sugar
+butter:butter
+olive:olive
+zwiebel:onion
+sahne:cream
+eier:egg
+wasser:water
+milch:milk
+mehl:flour
+petersilie:parsley
+knoblauchzehe:garlic
+zitrone:lemon
+paprika:paprika
+weibwein:wine
+kartoffeln:potato
+eigelb:yolk
+dünne:thin
+honig:honey
+parmesan:parmesan
+thymian:thyme
+frühlingszwiebeln:spring onion
+zimt:cinnamon
+senf:mustard
+vanillezucker:vanilla sugar
+basilikum:basil
+zucchini:zucchini
+champignon:mushroom
+karotte:carrot
+ingwer:ginger
+mandeln:almond
+sonnenblumenöl:sunflower
+käse:cheese
+olive:olive
+frischkäse:cream cheese
+walnüsse:walnuts
+schnittlauch:chive
+schinken:ham
+koriander:coriander
+minze:mint
+lorbeerblatt:laurel leaf
+rosmarin:rosemary
+mascarpone:mascarpone
+muskatnuss:nutmeg
+tomate:tomato
+oregano:oregano
+kreuzkümmel:cumin
+erdbeeren:strawberry
+naturjoghurt:yoghurt
+mayonnaise:mayonnaise
+möhren:carrot
+essig:vinegar
+rotwein:red wine
+spargel:asparagus
+kirschtomaten:cherry tomato
+kurkuma:turmeric
+mozzarella:mozzarella
+bohnen:beans
+apfel:apple
+sellerie:celeryt
+himbeeren:raspberry
+orange:orange
+samen:seed
+nudeln:noodles
+garnelen:shrimp
+gurke:cucumber
+schokolade:chocolate
+muskat:muscat
+apfelessig:apple vinegar
+cayennepfeffer:cayenne pepper
+semmelbrösel:breadcrumb
+spinat:spinach
+kokosmilch:coconut milk
+ananas:pineapple
+sojasobe:soybean
+rotweinessig:red wine vinegar
+pfefferkörner:peppercorn
+majoran:marjoram
+chilischote:chili pepper
+rindfleisch:beef
+birnen:pear
+pinienkerne: pine nuts
+hefe:yeast
+kürbis:pumpkin
+ketchup:ketchup
+essiggurken:pickles
+erdnüsse: peanuts
+radieschen:radish
+kakaopulver:cocoa
+brötchen:bun
+schalotte:shallot
+bacon:bacon
+pistazien:pistachios
+spaghetti:spaghetti
+margarine:margarine
+möhre:carrot
+banana:banana
+pilze:mushroom
+brokkoli:broccoli
+koriandergrün:coriander green
+ricotta:ricotta
+aprikosen:apricots
+lachs:salmon
+couscous:couscous
+gorgonzola:gorgonzola
+heidelbeeren:blueberry
+blattsalat:lettuce
+blumenkohl:cauliflower
+haselnüsse:hazelnuts
+schweinefleisch:pork
+risottoreis:risotto
+pecorino:pecorino
+mais:corn
+vinaigrette:vinaigrette
+buttermilch:buttermilk
+kürbiskerne:pumpkin seed
+cognac:cognac
+baguette:baguette
+curry:curry
+feigen:figs
+thunfisch:tuna
+marshmallow:marshmallow
+rotkohl:red cabbage
+quinoa:quinoa
+rübe:turnip
+safran:saffron
+avocado:avocado
+kaffee:coffee
+pflaumen: plums
+sauce:sauce
+auberginen:eggplant
+sherryessig:sherry
+pancetta:pancetta
+schnittlauchröllchen:chive
+kopfsalat:lettuce
+brombeeren:blackberry
+stärkemehl:starch flour
+erbsen:pea
+meerrettich:horseradish
+trauben:grape
+pimentkörner:allspice
+brot:bread
+miesmuscheln:mussels
+palmzucker:palm sugar
+erdnussöl:peanut oil
+kokosöl:coconut oil
+brunnenkresse:watercress
+kidneybohnen:kidney beans
+pekannüsse:pecans
+sauerkraut:sauerkraut
+mangos:mango
+cornichons:cornichons
+maiskörner:corn kernels
+grünkohl:kale
+stangensellerie:celery
+gans:goose
+kartoffel:potato
+kondensmilch:condensed milk
+mandelstifte:almond pins
+schweineschulter:pork
+fischfilet: fish
+tofu:tofu
+putenbrust:turkey
+spinatblätter:spinach
+bier:beer
+chorizo:chorizo
+zartbitter:bittersweet
+wassermelone:watermelon
+wurst:sausage
+gurken:cucumber
+chia:chia
+sesam:sesame
+mandelmilch:almond milk
+maisstärke:cornstarch
+paniermehl:breadcrumbs
+korianderblätter:coriander
+chinakohl:chinese cabbage
+apfelwein:cider
+dijon:dijon
+gruyere:gruyere
+anchovis:anchovy
+granatapfel:pomegranate
+baiser:meringue
+aubergine:aubergine
+venusmuscheln:clam
+herzmuscheln:cockle
+balsamessig:
+gulaschfleisch:goulash
+mortadella:mortadella
+kräutersträubchen:herbal
+karpfen:carp
+herz:heart
+perlzwiebeln:pearl onion
+hühnerbrust:chicken
+pizza:pizza
+rohrzucker:cane sugar
+likör:liqueur
+chevre:chevre
+kirschen:cherry
+fisch:fish
+tintenfische:squid
+kresse:cress
+vollmilchschokolade:chocolate
+ghee:ghee
+artischocken:artichoke
+paella:paella
+marzipan:marzipan
+wein:wine

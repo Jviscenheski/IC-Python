@@ -4,7 +4,6 @@ from pymongo import MongoClient
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 import math
-from operator import itemgetter
 
 import operator
 
@@ -152,7 +151,7 @@ def criaNos(arquivoBR, arquivoFR, arquivoAL, arquivoIT, arquivoIN, arquivoUSA, g
 def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA):
 
     # primeiro analisa as receitas brasileiras 7794
-    for i in range(0,7794):                                                                     # controla o dataframe                                                                # controla o grafo
+    for i in range(0,10):                                                                     # controla o dataframe                                                                # controla o grafo
         listIngredient = dataframeBR.loc[i, "ingredients"]     # pega os ingredientes de uma receita
         for item in listIngredient:                                                             # controla a lista de ingredientes
             for j in range(0, len(grafo)):
@@ -168,7 +167,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente BR!")
 
     # analisando as receitas francesas 5568
-    for i in range(0, 5568):                                                                    # controla o dataframe
+    for i in range(0, 10):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = dataframeFR.loc[i, "ingredients"]                                   # pega os ingredientes de uma receita
             for item in listIngredient:                                                         # controla a lista de ingredientes
@@ -184,7 +183,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente FR")
 
     # analisando as receitas alemãs 6985
-    for i in range(0, 6984):                                                                    # controla o dataframe
+    for i in range(0, 10):                                                                    # controla o dataframe
         for j in range(0, len(grafo)):                                                          # controla o grafo
             listIngredient = dataframeAL.loc[i, "ingredients"]                              # pega os ingredientes de uma receita
             for item in listIngredient:                                                         # controla a lista de ingredientes
@@ -200,7 +199,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente AL")
 
     # analisando as receitas italianas 4006
-    for i in range(0, 4005):                                                            # controla o dataframe
+    for i in range(0, 10):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
             listIngredient = dataframeIT.loc[i, "ingredients"]                       # pega os ingredientes de uma receita
             for item in listIngredient:                                                 # controla a lista de ingredientes
@@ -216,7 +215,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente IT")
 
     # analisando as receitas indianas 967
-    for i in range(0, 966):                                                            # controla o dataframe
+    for i in range(0, 10):                                                            # controla o dataframe
         for j in range(0, len(grafo)):                                                  # controla o grafo
             listIngredient = dataframeIN.loc[i, "ingredients"]                          # pega os ingredientes de uma receita
             for item in listIngredient:                                                 # controla a lista de ingredientes
@@ -232,7 +231,7 @@ def insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, datafra
                     print("achou ingrediente IN")
 
     # analisa as receitas estadunidenses 12167
-    for i in range(0, 12167):                                                                             # controla o dataframe
+    for i in range(0, 10):                                                                             # controla o dataframe
         for j in range(0, len(grafo)):                                                                    # controla o grafo
             listIngredient = dataframeUSA.loc[i, "ingredients"]        # pega os ingredientes de uma receita
             for item in listIngredient:                                                                   # controla a lista de ingredientes
@@ -278,7 +277,7 @@ def criaLinks(grafo, tam):
     #return pmiList
 
 
-def removeEdgesByCentrality(grafo):
+def removeEdgesByCentrality(grafo, arquivo):
 
     edgeDics = nx.algorithms.centrality.edge_betweenness_centrality(grafo)
     count = 0
@@ -287,10 +286,36 @@ def removeEdgesByCentrality(grafo):
 
     for edge in sorted_x:
         print(str(edge))
-        if count < 8500:
+        if count < 500:
             print(str(edge))
-            grafo.remove_edge(edge[0][0], edge[0][1])
+            print(grafo.nodes[edge[0][0]])
+            print(grafo.nodes[edge[0][0]]['ingredienteEN'] + "-" + grafo.nodes[edge[0][1]]['ingredienteEN']
+                  + ":" + str(edge[1]))
+            #grafo.remove_edge(edge[0][0], edge[0][1])
+            arquivo.write(grafo.nodes[edge[0][0]]['ingredienteEN'] + "-" + grafo.nodes[edge[0][1]]['ingredienteEN']
+                  + ":" + str(edge[1]) + "\n")
             count += 1
+
+    count = 0
+    dicCentralidade = nx.algorithms.centrality.degree_centrality(grafo)
+    for item in dicCentralidade:
+        if count < 100:
+            print(grafo.nodes[item]['ingredienteEN'])
+            arquivo.write(grafo.nodes[item]['ingredienteEN'] + "\n")
+            count += 1
+
+    '''
+    count = 0
+    while count < 4000:
+        edgeDics = nx.algorithms.centrality.edge_betweenness_centrality(grafo)
+        sorted_x = sorted(edgeDics.items(), key=operator.itemgetter(1), reverse=True)
+
+        for edge in sorted_x:
+            #grafo.remove_edge(edge[0][0], edge[0][1])
+            #break
+
+        count += 1
+    '''
 
 
 def defineGroups(grafo, tam):
@@ -782,13 +807,14 @@ stopWordsIN.update(unitValidation)
 stopWordsUSA.update(unitValidation)
 
 lista_todos_total = open("lista-total-todos.txt", "a")
+betweenness_edges = open("betweenness_edges.txt", "a")
 criaNos("Brasil-ALTO.txt", "França-ALTO.txt", "Alemanha-ALTO.txt", "Itália-ALTO.txt", "Índia-ALTO.txt", "EUA-ALTO.txt", grafo, lista_todos_total)
 insereIDreceitas(dataframeBR, dataframeFR, dataframeAL, dataframeIT, dataframeIN, dataframeUSA)
 criaLinks(grafo, len(grafo))
 defineGroups(grafo, len(grafo))
 #salvaGrafo(grafo, "todos-alto-PMI-completo.dot")
-removeEdgesByCentrality(grafo)
-salvaGrafo(grafo, "todos-alto-PMI-removeEdges-8500.dot")
+removeEdgesByCentrality(grafo, betweenness_edges)
+salvaGrafo(grafo, "todos-alto-PMI-removeEdges-GN-4500.dot")
 
 
 

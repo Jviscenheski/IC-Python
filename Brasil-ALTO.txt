@@ -1,0 +1,356 @@
+sal:salt
+leite:milk
+alho:garlic
+azeite:olive
+cebola:onion
+água:water
+óleo:oil
+manteiga:butter
+farinha:flour
+pimenta-do-reino:black pepper
+açúcar:sugar
+pimenta:pepper
+trigo:wheat
+limão:lemon
+ovo:egg
+queijo:cheese
+tomate:tomato
+frango:chicken
+carne:meat
+pimentão:chili
+salsinha:parsley
+cebolinha:chive
+coentro:coriander
+semente:seed
+vinagre:vinegar
+arroz:rice
+gengibre:ginger
+canela:cinnamon
+milho:corn
+cenoura:carrot
+coco:coconut
+margarina:margarine
+parmesão:parmesan
+orégano:oregano
+soja:soybean
+chocolate:chocolate
+mussarela:mozzarella
+maisena:cornstarch
+calabresa:pepperoni
+batata:potato
+filé:fillet
+manjericão:basil
+presunto:ham
+fermento:yeast
+nozes:walnuts
+tomilho:thyme
+mostarda:mustard
+cheiro-verde:green smell
+páprica:paprika
+bacon:bacon
+porco:pork
+baunilha:vanilla
+maçã:apple
+azeitona:olive
+amido:starch
+iogurte:yogurt
+espinafre:spinach
+noz-moscada:nutmeg
+mandioca:cassava
+amêndoa:almond
+filé:filet
+laranja:orange
+requeijão:curd
+postas:posts
+macarrão:noodles
+cogumelo:mushroom
+camarão:shrimp
+abacaxi:pineapple
+ervilha:pea
+linguiça:sausage
+amendoim:peanuts
+palmito:heart of palm
+uva-passa:raisin
+bacalhau:cod
+alecrim:rosemary
+grão:grain
+maionese:mayonnaise
+erva:herb
+cominho:cumin
+hortelã:mint
+gergelim:sesame
+café:coffee
+morango:strawberry
+tinto:red wine
+repolho:cabbage
+rúcula:arugula
+girassol:sunflower
+feijão:beans
+cheese:cheese
+alho-poró:leek
+ameixa:plum
+gema:gem
+conhaque:brandy
+cereja:cherry
+açafrão:saffron
+shoyu:shoyu
+salsão:celery
+alface:lettuce
+mascavo:brown sugar
+ricota:ricotta
+gorgonzola:gorgonzola
+lombo:loin
+agrião:watercress
+caju:cashew
+salmão:salmon
+atum:tuna
+dendê:oil palm
+cereja:cherry
+curry:curry
+maçã:apple
+espaguete:spaghetti
+champanhe:champagne
+lasanha:lasagna
+cogumelo:mushroom
+balsâmico:balsamic
+linguiça:sausage
+siciliano:sicilian
+uva-passa:raisin
+brócolis:broccoli
+toucinho:bacon
+licor:liquor
+manga:mango
+chantilly:chantilly
+chia:chia
+robalo:sea bass
+lentilha:lentil
+risoto:risotto
+pepino:cucumber
+vieira:scallop
+aipo:celery
+cordeiro:lamb
+chalota:shallot
+aveia:oatmeal
+alcaparra:caper
+cravos-da-índia:clove
+banana:banana
+bife:steak
+catchup:ketchup
+cacau:cocoa
+berinjela:eggplant
+sardinha:sardines
+alcatra:rump
+fígado:liver
+pescada:hake
+colorau:paprika
+tainha:muller
+rum:rum
+damasco:apricot
+castanha:chestnut
+gruyère:gruyère
+lula:squid
+abóbora:pumpkin
+azeite-de-dendê:palm oil
+couve-flor:cauliflower
+peru:turkey
+cerveja:beer
+pernil:ham
+abobrinha:zucchini
+grão-de-bico:chickpea
+erva-doce:fennel
+paleta:palette
+costela:rib
+manjerona:marjoram
+polvo:octopus
+laranja:orange
+framboesa:raspberry
+ameixa:plum
+pimenta-chili:chili pepper
+cebolinhas-brancas:white onion
+cardamomo:cardamom
+damasco:apricot
+nata:cream
+mascarpone:mascarpone
+catupiry:catupiry
+champignon:mushroom
+linguado:sole
+provolone:provolone
+linhaça:linseed
+pistilo:pistil
+adoçante:sweetener
+amêndoa:almonds
+quinoa:quinoa
+tomate-cereja:cherry tomato
+mexilhão:mussel
+anchova: anchovy
+cheiro-verde:green smell
+castanha-de-caju:cashew
+bicarbonato:bicarbonate
+pizza:pizza
+mirtilo:blueberry
+castanha:chestnut
+siciliano:sicilian lemon
+grão:grain
+alcachofra:artichoke
+vagem:pod
+alcaparra:caper
+patinho:duck
+cebolas-roxa:red onion
+achocolatado:chocolate
+banana:banana
+blueberry:blueberry
+pistache:pistachio
+caranguejo:crab
+sálvia:sage
+majericão:majolica
+pimenta-malagueta: chili pepper
+pimenta-branca:white pepper
+vagem:pod
+mozzarela:mozzarella
+fondor:fondor
+maizena:cornstarch
+sódio:sodium
+sorvete:ice cream
+glucose:glucose
+framboesa:raspberry
+siri:crab
+ketchup:ketchup
+arroz-agulhinha:rice
+chalota:shallot
+tofu:tofu
+salame:salami
+alho-poró:leek
+pimenta:pepper
+maracujá:passion fruit
+aspargo:asparagus
+pinga:drips
+moranga:morang
+cravo:harpsichord
+agave:agave
+abacate:avocado
+fígado:liver
+pimenta-rosa:pink pepper
+tender:tender
+quiabo:okr
+tomate-maçã:apple tomato
+pérola:pearl
+cravo:carnation
+champagne:champagne
+pêssego:peach
+castanha-de-caju:cashew nut
+crustáceo:crustacean
+palmeira:palm tree
+pinoli: pinoli
+endro:dill
+funcho:gennel
+yakysoba:yakysoba
+tâmara:tamara
+pera:pear
+batata-doce:sweet potato
+macadâmia:macadamia
+alga:seaweed
+açafrão-da-terra:tumeric
+maçã-verde:green apple
+cebolina:chive
+cottage:cottage
+cúrcuma:turmeric
+calabresa:pepperoni
+castanha-do-pará:brazil nuts
+ameixas-pretas:black plum
+ganache:ganache
+escarola:escarole
+aipim:wahoo
+cação:cation
+caramelo:caramel
+uísque:whiskey
+polvilho:sprinkle
+goiaba:guava fruit
+radicchio:radicchio
+banha:lard
+hester:hester
+figo:fig
+tangerina:tangerine
+mamão:papaya
+coração:heart
+cebolinha:chive
+sagu:sago
+melancia:watermelon
+amareto:amareto
+maçã-verde:green apple
+fuji:fuji
+tahine:tahini
+pimenta-síria:syrian pepper
+milho-verde:green corn
+guaraná:guarana
+tangerina:tangerine
+tilápia:tilapia
+alcachofra:artichoke
+leitão:piglet
+carne-seca:jerky
+pétala:petal
+paçoca:peanut
+canjica:hominy
+polpa:pulp
+ouro:gold
+rabanete:radish
+couve:kale
+malagueta:hot chili
+canola:canola
+palmito:palm heart
+acelga:chard
+macaxeira:cassava
+uva:grape
+romã:pomegranate
+fubá:cornmeal
+escargot:escargot
+caracol:snail
+alho-poró:leek
+lentilha:lentil
+chouriço:chorizo
+raclette:raclette
+brigadeiro:brigadeiro
+amarula:amarula
+coco:coconut
+bolacha:wafer
+cachaça:cachaça
+tapioca:tapioca
+pêssego:peach
+moscatel:uscat
+anchova:anchovy
+contrafilé:counterfeit
+pão:bread
+chorizo:chorizo
+vinho:wine
+pimenta-da-jamaica:allspice
+abobrinha:zucchini
+mortadela:mortadella
+tahini:tahini
+beterraba:beet
+abacate:avocado
+lula:squid
+oregano:oregano
+maria-mole:maria-mole
+manga:mango
+pato:duck
+sidra:cider
+nescau:nescau
+queijo-de-minas:minas cheese
+goiabada:guava paste
+kiwi:kiwi
+melão:melon
+yogurte:yogurt
+abacaxi:pineapple
+pinhão:pinion gear
+açaí:açaí
+granola:granola
+ovomaltine:ovomaltine
+jaca:jackfruit
+cajú:cashew nuts
+banana-passa:raisin
+cupuaçú:cupuassu
+nescau:nescau
+sêmola:semolina
+avelã:hazelnut
+toddy:toddy
+jabuticaba:jabuticaba
+rabanete:radish
